@@ -1,0 +1,27 @@
+<div class="temp-container standard-form">
+    <img class="profile" src="{{document.img}}" alt="{{document.name}}" data-action='editImage' data-edit="img">
+    <div class="form-group">
+        <div class="form-fields">
+            <label>{{localize "DAGGERHEART.Sheets.Companion.FIELDS.partner.label"}}</label>
+            <select name="system.partner">
+                {{selectOptions playerCharacters selected=source.system.partner.uuid labelAttr="name" valueAttr="key" blank=""}}
+            </select>
+        </div>
+    </div>
+    
+    {{formGroup systemFields.resources.fields.stress.fields.value value=source.system.resources.stress.value localize=true }}
+    {{formGroup systemFields.evasion.fields.value value=source.system.evasion.value localize=true }}
+    
+    <div class="flexcol">
+        {{#each source.system.experiences as |experience key|}}
+            <div class="flexrow">
+                <input type="text" name="{{concat "system.experiences." key ".description"}}" value="{{experience.description}}" />
+                <input type="text" data-dtype="Number" name="{{concat "system.experiences." key ".value"}}" value="{{experience.value}}" />
+            </div>
+        {{/each}}
+    </div>
+
+    <div class="flexcol">
+        {{formGroup systemFields.attack.fields.name value=source.system.attack.name localize=true }}
+    </div>
+</div>

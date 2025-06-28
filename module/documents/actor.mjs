@@ -11,7 +11,7 @@ export default class DhpActor extends Actor {
 
         // Configure prototype token settings
         const prototypeToken = {};
-        if (this.type === 'character')
+        if (['character', 'companion'].includes(this.type))
             Object.assign(prototypeToken, {
                 sight: { enabled: true },
                 actorLink: true,

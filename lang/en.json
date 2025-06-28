@@ -14,6 +14,7 @@
         },
         "Actor": {
             "character": "Character",
+            "companion": "Companion",
             "adversary": "Adversary",
             "environment": "Environment"
         }
@@ -1200,6 +1201,23 @@
                     "tooHighLevel": "You cannot raise the character level past the maximum",
                     "tooLowLevel": "You cannot lower the character level below starting level"
                 }
+            },
+            "Companion": {
+                "FIELDS": {
+                    "partner": { "label": "Partner" },
+                    "evasion": {
+                        "value": { "label": "Evasion" }
+                    },
+                    "resources": {
+                        "stress": {
+                            "value": { "label": "Stress" }
+                        }
+                    },
+                    "attack": {
+                        "name": { "label": "Attack Name" }
+                    }
+                },
+                "Experiences": "Experiences"
             },
             "Adversary": {
                 "FIELDS": {
