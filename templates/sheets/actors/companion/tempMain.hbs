@@ -21,7 +21,13 @@
         {{/each}}
     </div>
 
-    <div class="flexcol">
-        {{formGroup systemFields.attack.fields.name value=source.system.attack.name localize=true }}
+    <div class="flexrow">
+        <div class="form-group">
+            <div class="form-fields">
+                <label>{{localize "DAGGERHEART.Sheets.Companion.FIELDS.attack.name.label"}}</label>
+                <input type="text" name="system.attack.name" value="{{source.system.attack.name}}" />
+                <button data-action="attackRoll">Attack</button>
+            </div>
+        </div>
     </div>
 </div>

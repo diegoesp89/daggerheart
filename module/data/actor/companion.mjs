@@ -1,6 +1,7 @@
 import BaseDataActor from './base.mjs';
 import DhLevelData from '../levelData.mjs';
 import ForeignDocumentUUIDField from '../fields/foreignDocumentUUIDField.mjs';
+import ActionField from '../fields/actionField.mjs';
 
 export default class DhCompanion extends BaseDataActor {
     static LOCALIZATION_PREFIXES = ['DAGGERHEART.Sheets.Companion'];
@@ -41,28 +42,38 @@ export default class DhCompanion extends BaseDataActor {
                     }
                 }
             ),
-            attack: new fields.SchemaField({
-                name: new fields.StringField({}),
-                range: new fields.StringField({
-                    required: true,
-                    choices: SYSTEM.GENERAL.range,
-                    initial: SYSTEM.GENERAL.range.melee.id
-                }),
-                damage: new fields.SchemaField({
-                    value: new fields.StringField({ initial: 'd6' }),
-                    type: new fields.StringField({
-                        required: true,
-                        choices: SYSTEM.GENERAL.damageTypes,
-                        initial: SYSTEM.GENERAL.damageTypes.physical.id
-                    })
-                })
+            attack: new ActionField({
+                base: {
+                    name: 'Attack',
+                    _id: foundry.utils.randomID(),
+                    systemPath: 'attack',
+                    type: 'attack',
+                    range: 'melee',
+                    target: {
+                        type: 'any',
+                        amount: 1
+                    },
+                    roll: {
+                        type: 'weapon',
+                        bonus: 0
+                    },
+                    damage: {
+                        parts: [
+                            {
+                                multiplier: 'flat'
+                            }
+                        ]
+                    }
+                }
             }),
             levelData: new fields.EmbeddedDataField(DhLevelData)
         };
     }
 
     prepareBaseData() {
-        this.attack.modifier = this.partner?.system?.spellcastingModifiers?.main ?? 0; // Needs to expand on which modifier it is that should be used because of multiclassing;
+        const partnerSpellcastingModifier = this.partner?.system?.spellcastingModifiers?.main;
+        const spellcastingModifier = this.partner?.system?.traits?.[partnerSpellcastingModifier]?.total;
+        this.attack.roll.bonus = spellcastingModifier ?? 0; // Needs to expand on which modifier it is that should be used because of multiclassing;
     }
 
     prepareDerivedData() {

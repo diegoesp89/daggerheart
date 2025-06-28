@@ -6,7 +6,9 @@ export default class DhCompanionSheet extends DaggerheartSheet(ActorSheetV2) {
         tag: 'form',
         classes: ['daggerheart', 'sheet', 'actor', 'dh-style', 'companion'],
         position: { width: 700, height: 1000 },
-        actions: {},
+        actions: {
+            attackRoll: this.attackRoll
+        },
         form: {
             handler: this.updateForm,
             submitOnChange: true,
@@ -31,5 +33,9 @@ export default class DhCompanionSheet extends DaggerheartSheet(ActorSheetV2) {
     static async updateForm(event, _, formData) {
         await this.document.update(formData.object);
         this.render();
+    }
+
+    static async attackRoll(event) {
+        this.actor.system.attack.use(event);
     }
 }
