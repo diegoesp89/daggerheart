@@ -100,6 +100,15 @@
                 "FIELDS": {
                     "maxFear": { "label": "Max Fear" },
                     "traitArray": { "label": "Initial Trait Modifiers" }
+                },
+                "Currency": {
+                    "enabled": "Enable Overrides",
+                    "title": "Currency Overrides",
+                    "currencyName": "Currency Name",
+                    "coinName": "Coin Name",
+                    "handfullName": "Handfull Name",
+                    "bagName": "Bag Name",
+                    "chestName": "Chest Name"
                 }
             },
             "Resources": {
@@ -1589,6 +1598,9 @@
             },
             "spellcast": {
                 "name": "SpellCast"
+            },
+            "diceSet": {
+                "name": "Dice Set"
             }
         }
     }

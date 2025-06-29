@@ -17,14 +17,6 @@ export default class DhpActor extends Actor {
         this.updateSource({ prototypeToken });
     }
 
-    prepareData() {
-        super.prepareData();
-    }
-
-    async _preUpdate(changed, options, user) {
-        super._preUpdate(changed, options, user);
-    }
-
     async updateLevel(newLevel) {
         if (this.type !== 'character' || newLevel === this.system.levelData.level.changed) return;
 
@@ -274,9 +266,10 @@ export default class DhpActor extends Actor {
      * @param {object} [config.costs]
      */
     async diceRoll(config) {
-        config.source = {...(config.source ?? {}), actor: this.uuid};
+        config.source = { ...(config.source ?? {}), actor: this.uuid };
         config.data = this.getRollData();
-        return await this.rollClass.build(config);
+        const rollClass = config.roll.lite ? CONFIG.Dice.daggerheart['DHRoll'] : this.rollClass;
+        return await rollClass.build(config);
     }
 
     get rollClass() {
@@ -429,13 +422,17 @@ export default class DhpActor extends Actor {
                     break;
                 default:
                     updates.actor.resources[`system.resources.${r.type}.value`] = Math.max(
-                        Math.min(this.system.resources[r.type].value + r.value, this.system.resources[r.type].max),
+                        Math.min(
+                            this.system.resources[r.type].value + r.value,
+                            this.system.resources[r.type].maxTotal ?? this.system.resources[r.type].max
+                        ),
                         0
                     );
                     break;
             }
         });
         Object.values(updates).forEach(async u => {
+            console.log(updates, u);
             if (Object.keys(u.resources).length > 0) {
                 if (game.user.isGM) {
                     await u.target.update(u.resources);

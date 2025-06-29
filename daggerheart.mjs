@@ -62,7 +62,7 @@ Hooks.once('init', () => {
     CONFIG.Dice.rolls = [...CONFIG.Dice.rolls, ...[DHRoll, DualityRoll, D20Roll, DamageRoll]];
     CONFIG.MeasuredTemplate.objectClass = DhMeasuredTemplate;
 
-    CONFIG.Item.documentClass = documents.DhpItem;
+    CONFIG.Item.documentClass = documents.DHItem;
 
     //Registering the Item DataModel
     CONFIG.Item.dataModels = models.items.config;
@@ -323,7 +323,7 @@ const preloadHandlebarsTemplates = async function () {
         'systems/daggerheart/templates/views/actionTypes/range-target.hbs',
         'systems/daggerheart/templates/views/actionTypes/effect.hbs',
         'systems/daggerheart/templates/settings/components/settings-item-line.hbs',
-        
+
         'systems/daggerheart/templates/chat/parts/target-chat.hbs'
     ]);
 };
