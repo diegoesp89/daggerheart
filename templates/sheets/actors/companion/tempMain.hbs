@@ -3,7 +3,7 @@
     <div class="form-group">
         <div class="form-fields">
             <label>{{localize "DAGGERHEART.Sheets.Companion.FIELDS.partner.label"}}</label>
-            <select name="system.partner">
+            <select class="partner-value">
                 {{selectOptions playerCharacters selected=source.system.partner.uuid labelAttr="name" valueAttr="key" blank=""}}
             </select>
         </div>
@@ -15,7 +15,7 @@
     <div class="flexcol">
         {{#each source.system.experiences as |experience key|}}
             <div class="flexrow">
-                <input type="text" name="{{concat "system.experiences." key ".description"}}" value="{{experience.description}}" />
+                <input type="text" name="{{concat "system.experiences." key ".name"}}" value="{{experience.name}}" />
                 <input type="text" data-dtype="Number" name="{{concat "system.experiences." key ".value"}}" value="{{experience.value}}" />
             </div>
         {{/each}}
@@ -27,6 +27,16 @@
                 <label>{{localize "DAGGERHEART.Sheets.Companion.FIELDS.attack.name.label"}}</label>
                 <input type="text" name="system.attack.name" value="{{source.system.attack.name}}" />
                 <button data-action="attackRoll">Attack</button>
+            </div>
+        </div>
+    </div>
+
+    <div class="flexrow">
+        <div class="form-group">
+            <div class="form-fields">
+                <label>{{localize "DAGGERHEART.Sheets.Companion.Level"}}</label>
+                <input type="text" name="system.levelData.level.changed" value="{{source.system.levelData.level.changed}}" />
+                <button data-action="levelUp" {{#if (not source.system.levelData.canLevelUp)}}disabled{{/if}}>Level Up</button>
             </div>
         </div>
     </div>

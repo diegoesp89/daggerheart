@@ -2933,6 +2933,7 @@ div.daggerheart.views.multiclass {
   display: flex;
   flex-direction: column;
   gap: 8px;
+  margin-top: 8px;
 }
 .daggerheart.levelup .levelup-navigation-container {
   display: flex;
@@ -3093,6 +3094,13 @@ div.daggerheart.views.multiclass {
   display: flex;
   align-items: center;
   gap: 4px;
+}
+.daggerheart.levelup .levelup-selections-container .levelup-radio-choices {
+  display: flex;
+  gap: 8px;
+}
+.daggerheart.levelup .levelup-selections-container .levelup-radio-choices label {
+  flex: 0;
 }
 .daggerheart.levelup .levelup-summary-container .level-achievements-container,
 .daggerheart.levelup .levelup-summary-container .level-advancements-container {

@@ -58,6 +58,37 @@ class DhLevelOption extends foundry.abstract.DataModel {
     }
 }
 
+export const CompanionLevelOptionType = {
+    lightInTheDark: {
+        id: 'lightInTheDark',
+        label: 'Light In The Dark'
+    },
+    createComfort: {
+        id: 'createComfort',
+        label: 'Create Comfort'
+    },
+    armored: {
+        id: 'armored',
+        label: 'Armored'
+    },
+    vicious: {
+        id: 'vicious',
+        label: 'Viscious'
+    },
+    resilient: {
+        id: 'resilient',
+        label: 'Resilient'
+    },
+    bonded: {
+        id: 'bonded',
+        label: 'Bonded'
+    },
+    aware: {
+        id: 'aware',
+        label: 'Aware'
+    }
+};
+
 export const LevelOptionType = {
     trait: {
         id: 'trait',
@@ -106,7 +137,8 @@ export const LevelOptionType = {
     multiclass: {
         id: 'multiclass',
         label: 'Multiclass'
-    }
+    },
+    ...CompanionLevelOptionType
 };
 
 export const defaultLevelTiers = {
@@ -333,6 +365,83 @@ export const defaultLevelTiers = {
                     checkboxSelections: 2,
                     minCost: 2,
                     type: LevelOptionType.multiclass.id
+                }
+            }
+        }
+    }
+};
+
+export const defaultCompanionTier = {
+    tiers: {
+        2: {
+            tier: 2,
+            name: 'Companion Choices',
+            levels: {
+                start: 2,
+                end: 10
+            },
+            initialAchievements: {},
+            availableOptions: 1,
+            domainCardByLevel: 0,
+            options: {
+                experience: {
+                    label: 'DAGGERHEART.LevelUp.Options.intelligent',
+                    checkboxSelections: 3,
+                    minCost: 1,
+                    type: LevelOptionType.experience.id,
+                    value: 1,
+                    amount: 2
+                },
+                lightInTheDark: {
+                    label: 'DAGGERHEART.LevelUp.Options.lightInTheDark',
+                    checkboxSelections: 1,
+                    minCost: 1,
+                    type: CompanionLevelOptionType.lightInTheDark.id,
+                    value: 1
+                },
+                creatureComfort: {
+                    label: 'DAGGERHEART.LevelUp.Options.creatureComfort',
+                    checkboxSelections: 1,
+                    minCost: 1,
+                    type: CompanionLevelOptionType.createComfort.id,
+                    value: 1
+                },
+                armored: {
+                    label: 'DAGGERHEART.LevelUp.Options.armored',
+                    checkboxSelections: 1,
+                    minCost: 1,
+                    type: CompanionLevelOptionType.armored.id,
+                    value: 1
+                },
+                vicious: {
+                    label: 'DAGGERHEART.LevelUp.Options.vicious',
+                    checkboxSelections: 3,
+                    minCost: 1,
+                    type: CompanionLevelOptionType.vicious.id,
+                    value: 1,
+                    amount: 1
+                },
+                resilient: {
+                    label: 'DAGGERHEART.LevelUp.Options.resilient',
+                    checkboxSelections: 3,
+                    minCost: 1,
+                    type: CompanionLevelOptionType.resilient.id,
+                    value: 1
+                },
+                bonded: {
+                    label: 'DAGGERHEART.LevelUp.Options.bonded',
+                    checkboxSelections: 1,
+                    minCost: 1,
+                    type: CompanionLevelOptionType.bonded.id,
+                    value: 1
+                },
+                aware: {
+                    label: 'DAGGERHEART.LevelUp.Options.aware',
+                    checkboxSelections: 3,
+                    minCost: 1,
+                    type: CompanionLevelOptionType.aware.id,
+                    value: 2,
+                    amount: 1
                 }
             }
         }

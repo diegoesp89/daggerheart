@@ -4,7 +4,7 @@ import DhpDowntime from '../downtime.mjs';
 import AncestrySelectionDialog from '../ancestrySelectionDialog.mjs';
 import DaggerheartSheet from './daggerheart-sheet.mjs';
 import { abilities } from '../../config/actorConfig.mjs';
-import DhlevelUp from '../levelup.mjs';
+import DhCharacterlevelUp from '../levelup/characterLevelup.mjs';
 import DhCharacterCreation from '../characterCreation.mjs';
 
 const { ActorSheetV2 } = foundry.applications.sheets;
@@ -425,7 +425,7 @@ export default class CharacterSheet extends DaggerheartSheet(ActorSheetV2) {
             return;
         }
 
-        new DhlevelUp(this.document).render(true);
+        new DhCharacterlevelUp(this.document).render(true);
     }
 
     static async useDomainCard(event, button) {

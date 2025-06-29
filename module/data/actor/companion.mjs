@@ -2,6 +2,7 @@ import BaseDataActor from './base.mjs';
 import DhLevelData from '../levelData.mjs';
 import ForeignDocumentUUIDField from '../fields/foreignDocumentUUIDField.mjs';
 import ActionField from '../fields/actionField.mjs';
+import { adjustDice, adjustRange } from '../../helpers/utils.mjs';
 
 export default class DhCompanion extends BaseDataActor {
     static LOCALIZATION_PREFIXES = ['DAGGERHEART.Sheets.Companion'];
@@ -9,7 +10,7 @@ export default class DhCompanion extends BaseDataActor {
     static get metadata() {
         return foundry.utils.mergeObject(super.metadata, {
             label: 'TYPES.Actor.companion',
-            type: 'character'
+            type: 'companion'
         });
     }
 
@@ -23,7 +24,8 @@ export default class DhCompanion extends BaseDataActor {
                     value: new fields.NumberField({ initial: 0, integer: true }),
                     bonus: new fields.NumberField({ initial: 0, integer: true }),
                     max: new fields.NumberField({ initial: 3, integer: true })
-                })
+                }),
+                hope: new fields.NumberField({ initial: 0, integer: true })
             }),
             evasion: new fields.SchemaField({
                 value: new fields.NumberField({ required: true, min: 1, initial: 10, integer: true }),
@@ -31,7 +33,7 @@ export default class DhCompanion extends BaseDataActor {
             }),
             experiences: new fields.TypedObjectField(
                 new fields.SchemaField({
-                    description: new fields.StringField({}),
+                    name: new fields.StringField({}),
                     value: new fields.NumberField({ integer: true, initial: 0 }),
                     bonus: new fields.NumberField({ integer: true, initial: 0 })
                 }),
@@ -43,7 +45,7 @@ export default class DhCompanion extends BaseDataActor {
                 }
             ),
             attack: new ActionField({
-                base: {
+                initial: {
                     name: 'Attack',
                     _id: foundry.utils.randomID(),
                     systemPath: 'attack',
@@ -60,7 +62,11 @@ export default class DhCompanion extends BaseDataActor {
                     damage: {
                         parts: [
                             {
-                                multiplier: 'flat'
+                                multiplier: 'flat',
+                                value: {
+                                    dice: 'd6',
+                                    multiplier: 'flat'
+                                }
                             }
                         ]
                     }
@@ -74,6 +80,36 @@ export default class DhCompanion extends BaseDataActor {
         const partnerSpellcastingModifier = this.partner?.system?.spellcastingModifiers?.main;
         const spellcastingModifier = this.partner?.system?.traits?.[partnerSpellcastingModifier]?.total;
         this.attack.roll.bonus = spellcastingModifier ?? 0; // Needs to expand on which modifier it is that should be used because of multiclassing;
+
+        for (let levelKey in this.levelData.levelups) {
+            const level = this.levelData.levelups[levelKey];
+            for (let selection of level.selections) {
+                switch (selection.type) {
+                    case 'lightInTheDark':
+                        this.resources.hope += selection.value;
+                        break;
+                    case 'vicious':
+                        if (selection.data === 'damage') {
+                            this.attack.damage.parts[0].value.dice = adjustDice(this.attack.damage.parts[0].value.dice);
+                        } else {
+                            this.attack.range = adjustRange(this.attack.range);
+                        }
+                        break;
+                    case 'resilient':
+                        this.resources.stress.bonus += selection.value;
+                        break;
+                    case 'aware':
+                        this.evasion.bonus += selection.value;
+                        break;
+                    case 'intelligent':
+                        Object.keys(this.experiences).forEach(key => {
+                            const experience = this.experiences[key];
+                            experience.bonus += selection.value;
+                        });
+                        break;
+                }
+            }
+        }
     }
 
     prepareDerivedData() {
@@ -91,5 +127,9 @@ export default class DhCompanion extends BaseDataActor {
         return {
             ...data
         };
+    }
+
+    _preDelete() {
+        /* Null Character Companion field */
     }
 }

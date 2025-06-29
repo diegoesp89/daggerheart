@@ -115,6 +115,7 @@ export default class DhCharacter extends BaseDataActor {
                     magic: new fields.NumberField({ integer: true, initial: 0 })
                 })
             }),
+            companion: new ForeignDocumentUUIDField({ type: 'actor', nullable: true, initial: null }),
             rules: new fields.SchemaField({
                 maxArmorMarked: new fields.SchemaField({
                     value: new fields.NumberField({ required: true, integer: true, initial: 1 }),
