@@ -1,0 +1,17 @@
+<section
+    class='tab {{tabs.experiences.cssClass}} {{tabs.experiences.id}}'
+    data-tab='{{tabs.experiences.id}}'
+    data-group='{{tabs.experiences.group}}'
+>
+    <button>
+        New Experience
+    </button>
+    {{#each document.system.experiences as |experience id|}}
+        <div class="experience-row">
+            <div class="experience-value">
+                +{{experience.total}}
+            </div>
+            <input name="{{concat "system.experiences." id ".name"}}" data-experience={{id}} value="{{experience.name}}" type="text" />
+        </div>
+    {{/each}}
+</section>

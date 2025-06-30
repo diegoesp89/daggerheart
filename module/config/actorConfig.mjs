@@ -83,53 +83,53 @@ export const featureProperties = {
 export const adversaryTypes = {
     bruiser: {
         id: 'bruiser',
-        label: 'DAGGERHEART.Adversary.Type.Bruiser.label',
-        description: 'DAGGERHEART.Adversary.Bruiser.Description'
+        label: 'DAGGERHEART.Adversary.Type.bruiser.label',
+        description: 'DAGGERHEART.Adversary.bruiser.description'
     },
     horde: {
         id: 'horde',
-        label: 'DAGGERHEART.Adversary.Type.Horde.label',
-        description: 'DAGGERHEART.Adversary.Horde.Description'
+        label: 'DAGGERHEART.Adversary.Type.horde.label',
+        description: 'DAGGERHEART.Adversary.horde.description'
     },
     leader: {
         id: 'leader',
-        label: 'DAGGERHEART.Adversary.Type.Leader.label',
-        description: 'DAGGERHEART.Adversary.Leader.Description'
+        label: 'DAGGERHEART.Adversary.Type.leader.label',
+        description: 'DAGGERHEART.Adversary.leader.description'
     },
     minion: {
         id: 'minion',
-        label: 'DAGGERHEART.Adversary.Type.Minion.label',
-        description: 'DAGGERHEART.Adversary.Minion.Description'
+        label: 'DAGGERHEART.Adversary.Type.minion.label',
+        description: 'DAGGERHEART.Adversary.minion.description'
     },
     ranged: {
         id: 'ranged',
-        label: 'DAGGERHEART.Adversary.Type.Ranged.label',
-        description: 'DAGGERHEART.Adversary.Ranged.Description'
+        label: 'DAGGERHEART.Adversary.Type.ranged.label',
+        description: 'DAGGERHEART.Adversary.ranged.description'
     },
     skulk: {
         id: 'skulk',
-        label: 'DAGGERHEART.Adversary.Type.Skulk.label',
-        description: 'DAGGERHEART.Adversary.Skulk.Description'
+        label: 'DAGGERHEART.Adversary.Type.skulk.label',
+        description: 'DAGGERHEART.Adversary.skulk.description'
     },
     social: {
         id: 'social',
-        label: 'DAGGERHEART.Adversary.Type.Social.label',
-        description: 'DAGGERHEART.Adversary.Social.Description'
+        label: 'DAGGERHEART.Adversary.Type.social.label',
+        description: 'DAGGERHEART.Adversary.social.description'
     },
     solo: {
         id: 'solo',
-        label: 'DAGGERHEART.Adversary.Type.Solo.label',
-        description: 'DAGGERHEART.Adversary.Solo.Description'
+        label: 'DAGGERHEART.Adversary.Type.solo.label',
+        description: 'DAGGERHEART.Adversary.solo.description'
     },
     standard: {
         id: 'standard',
-        label: 'DAGGERHEART.Adversary.Type.Standard.label',
-        description: 'DAGGERHEART.Adversary.Standard.Description'
+        label: 'DAGGERHEART.Adversary.Type.standard.label',
+        description: 'DAGGERHEART.Adversary.standard.description'
     },
     support: {
         id: 'support',
-        label: 'DAGGERHEART.Adversary.Type.Support.label',
-        description: 'DAGGERHEART.Adversary.Support.Description'
+        label: 'DAGGERHEART.Adversary.Type.support.label',
+        description: 'DAGGERHEART.Adversary.support.description'
     }
 };
 

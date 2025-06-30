@@ -1,7 +1,7 @@
 @import '../utils/colors.less';
 @import '../utils/fonts.less';
 
-.application.sheet.dh-style {
+.application.dh-style {
     border: 1px solid light-dark(@dark-blue, @golden);
 
     input[type='text'],
@@ -90,6 +90,7 @@
 
     a:hover,
     a.active {
+        font-weight: bold;
         text-shadow: 0 0 8px light-dark(@dark-blue, @golden);
     }
 
@@ -160,10 +161,12 @@
         .nest-inputs {
             display: flex;
             align-items: center;
+            width: 100%;
             gap: 5px;
         }
 
         .form-group {
+            width: 100%;
             label {
                 font-family: @font-body;
                 font-weight: bold;

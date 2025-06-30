@@ -1,12 +1,13 @@
-import DHActionConfig from '../config/Action.mjs';
-import DaggerheartSheet from './daggerheart-sheet.mjs';
+import DHActionConfig from '../../config/Action.mjs';
+import DaggerheartSheet from '../daggerheart-sheet.mjs';
+import DHAdversarySettings from '../applications/adversary-settings.mjs';
 
 const { ActorSheetV2 } = foundry.applications.sheets;
 export default class AdversarySheet extends DaggerheartSheet(ActorSheetV2) {
     static DEFAULT_OPTIONS = {
         tag: 'form',
         classes: ['daggerheart', 'sheet', 'actor', 'dh-style', 'adversary'],
-        position: { width: 450, height: 1000 },
+        position: { width: 660, height: 766 },
         actions: {
             reactionRoll: this.reactionRoll,
             attackRoll: this.attackRoll,
@@ -14,7 +15,8 @@ export default class AdversarySheet extends DaggerheartSheet(ActorSheetV2) {
             addExperience: this.addExperience,
             removeExperience: this.removeExperience,
             toggleHP: this.toggleHP,
-            toggleStress: this.toggleStress
+            toggleStress: this.toggleStress,
+            openSettings: this.openSettings
         },
         form: {
             handler: this.updateForm,
@@ -24,28 +26,36 @@ export default class AdversarySheet extends DaggerheartSheet(ActorSheetV2) {
     };
 
     static PARTS = {
+        sidebar: { template: 'systems/daggerheart/templates/sheets/actors/adversary/sidebar.hbs' },
         header: { template: 'systems/daggerheart/templates/sheets/actors/adversary/header.hbs' },
-        tabs: { template: 'systems/daggerheart/templates/sheets/global/tabs/tab-navigation.hbs' },
-        main: { template: 'systems/daggerheart/templates/sheets/actors/adversary/main.hbs' },
-        information: { template: 'systems/daggerheart/templates/sheets/actors/adversary/information.hbs' }
+        features: { template: 'systems/daggerheart/templates/sheets/actors/adversary/features.hbs' },
+        effects: { template: 'systems/daggerheart/templates/sheets/actors/adversary/effects.hbs' }
     };
 
     static TABS = {
-        main: {
-            active: true,
-            cssClass: '',
-            group: 'primary',
-            id: 'main',
-            icon: null,
-            label: 'DAGGERHEART.Sheets.Adversary.Tabs.Main'
-        },
-        information: {
+        features: {
             active: false,
             cssClass: '',
             group: 'primary',
-            id: 'information',
+            id: 'features',
             icon: null,
-            label: 'DAGGERHEART.Sheets.Adversary.Tabs.Information'
+            label: 'DAGGERHEART.Sheets.Adversary.Tabs.features'
+        },
+        notes: {
+            active: false,
+            cssClass: '',
+            group: 'primary',
+            id: 'notes',
+            icon: null,
+            label: 'DAGGERHEART.Sheets.Adversary.Tabs.notes'
+        },
+        effects: {
+            active: false,
+            cssClass: '',
+            group: 'primary',
+            id: 'effects',
+            icon: null,
+            label: 'DAGGERHEART.Sheets.Adversary.Tabs.effects'
         }
     };
 
@@ -56,7 +66,6 @@ export default class AdversarySheet extends DaggerheartSheet(ActorSheetV2) {
         context.systemFields.attack.fields = this.document.system.attack.schema.fields;
         context.getEffectDetails = this.getEffectDetails.bind(this);
         context.isNPC = true;
-        console.log(context)
         return context;
     }
 
@@ -84,6 +93,10 @@ export default class AdversarySheet extends DaggerheartSheet(ActorSheetV2) {
 
     getEffectDetails(id) {
         return {};
+    }
+
+    static async openSettings() {
+        await new DHAdversarySettings(this.document).render(true);
     }
 
     static async attackRoll(event) {
