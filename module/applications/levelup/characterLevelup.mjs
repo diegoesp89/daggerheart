@@ -245,7 +245,8 @@ export default class DhCharacterLevelUp extends LevelUpBase {
                         shown: achievementCards.length > 0
                     },
                     experiences: {
-                        values: achievementExperiences
+                        values: achievementExperiences,
+                        shown: achievementExperiences.length > 0
                     }
                 };
 
