@@ -32,7 +32,7 @@ export default class DhpAdversary extends BaseDataActor {
             }),
             description: new fields.StringField(),
             motivesAndTactics: new fields.StringField(),
-            notes: new fields.HtmlField(),
+            notes: new fields.HTMLField(),
             difficulty: new fields.NumberField({ required: true, initial: 1, integer: true }),
             hordeHp: new fields.NumberField({ required: true, initial: 1, integer: true }),
             damageThresholds: new fields.SchemaField({
