@@ -32,7 +32,7 @@ export class DhLevelup extends foundry.abstract.DataModel {
                         return acc;
                     }, {});
 
-                    levels[i] = DhLevelupLevel.initializeData(pcLevelData.levelups[i], tier.availableOptions, {
+                    levels[i] = DhLevelupLevel.initializeData(pcLevelData.levelups[i], tier.maxSelections[i], {
                         ...initialAchievements,
                         experiences,
                         domainCards
@@ -99,7 +99,6 @@ export class DhLevelup extends foundry.abstract.DataModel {
                     case 'domainCard':
                     case 'subclass':
                     case 'vicious':
-                    case 'intelligent':
                         return checkbox.data.length === (checkbox.amount ?? 1);
                     case 'multiclass':
                         const classSelected = checkbox.data.length === 1;

@@ -76,6 +76,21 @@ export default class DhlevelUp extends HandlebarsApplicationMixin(ApplicationV2)
         }
     };
 
+    addBonusChoices(levelTiers) {
+        for (var tierKey in levelTiers.tiers) {
+            const tier = levelTiers.tiers[tierKey];
+            tier.maxSelections = [...Array(tier.levels.end - tier.levels.start + 1).keys()].reduce((acc, index) => {
+                const level = tier.levels.start + index;
+                const bonus = this.actor.system.levelData.level.bonuses[level];
+                acc[level] = tier.availableOptions + (bonus ?? 0);
+
+                return acc;
+            }, {});
+        }
+
+        return levelTiers;
+    }
+
     async _prepareContext(_options) {
         const context = await super._prepareContext(_options);
         context.levelup = this.levelup;
@@ -336,7 +351,7 @@ export default class DhlevelUp extends HandlebarsApplicationMixin(ApplicationV2)
                 experienceIncreaseTagify,
                 Object.keys(this.actor.system.experiences).reduce((acc, id) => {
                     const experience = this.actor.system.experiences[id];
-                    acc[id] = { label: experience.description };
+                    acc[id] = { label: experience.name };
 
                     return acc;
                 }, {}),

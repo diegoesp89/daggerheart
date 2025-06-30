@@ -7,7 +7,7 @@ export default class DhCompanionLevelUp extends BaseLevelUp {
     constructor(actor) {
         super(actor);
 
-        this.levelTiers = defaultCompanionTier;
+        this.levelTiers = this.addBonusChoices(defaultCompanionTier);
         const playerLevelupData = actor.system.levelData;
         this.levelup = new DhLevelup(DhLevelup.initializeData(this.levelTiers, playerLevelupData));
     }
@@ -40,7 +40,7 @@ export default class DhCompanionLevelUp extends BaseLevelUp {
                     .flatMap(exp =>
                         exp.data.map(data => {
                             const experience = Object.keys(this.actor.system.experiences).find(x => x === data);
-                            return this.actor.system.experiences[experience].description;
+                            return this.actor.system.experiences[experience].name;
                         })
                     );
                 context.experienceIncreases = {
@@ -69,23 +69,7 @@ export default class DhCompanionLevelUp extends BaseLevelUp {
 
                 break;
             case 'summary':
-                const { current: currentActorLevel, changed: changedActorLevel } = this.actor.system.levelData.level;
                 const levelKeys = Object.keys(this.levelup.levels);
-                let achievementExperiences = [];
-                for (var levelKey of levelKeys) {
-                    const level = this.levelup.levels[levelKey];
-                    if (Number(levelKey) < this.levelup.startLevel) continue;
-
-                    achievementExperiences = level.achievements.experiences
-                        ? Object.values(level.achievements.experiences).reduce((acc, experience) => {
-                              if (experience.name) acc.push(experience);
-                              return acc;
-                          }, [])
-                        : [];
-                }
-
-                context.achievements = {};
-
                 const actorDamageDice = this.actor.system.attack.damage.parts[0].value.dice;
                 const actorRange = this.actor.system.attack.range;
                 const advancement = {};
@@ -97,13 +81,13 @@ export default class DhCompanionLevelUp extends BaseLevelUp {
                         const choice = level.choices[choiceKey];
                         for (var checkbox of Object.values(choice)) {
                             switch (choiceKey) {
-                                case 'resilient':
-                                case 'aware':
+                                case 'stress':
+                                case 'evasion':
                                     advancement[choiceKey] = advancement[choiceKey]
                                         ? advancement[choiceKey] + Number(checkbox.value)
                                         : Number(checkbox.value);
                                     break;
-                                case 'intelligent':
+                                case 'experience':
                                     if (!advancement[choiceKey]) advancement[choiceKey] = [];
                                     const data = checkbox.data.map(data => {
                                         const experience = Object.keys(this.actor.system.experiences).find(

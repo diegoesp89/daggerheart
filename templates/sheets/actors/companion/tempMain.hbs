@@ -35,7 +35,7 @@
         <div class="form-group">
             <div class="form-fields">
                 <label>{{localize "DAGGERHEART.Sheets.Companion.Level"}}</label>
-                <input type="text" name="system.levelData.level.changed" value="{{source.system.levelData.level.changed}}" />
+                <div>{{source.system.levelData.level.changed}}</div>
                 <button data-action="levelUp" {{#if (not source.system.levelData.canLevelUp)}}disabled{{/if}}>Level Up</button>
             </div>
         </div>

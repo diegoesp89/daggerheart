@@ -85,23 +85,23 @@ export default class DhCompanion extends BaseDataActor {
             const level = this.levelData.levelups[levelKey];
             for (let selection of level.selections) {
                 switch (selection.type) {
-                    case 'lightInTheDark':
+                    case 'hope':
                         this.resources.hope += selection.value;
                         break;
                     case 'vicious':
-                        if (selection.data === 'damage') {
+                        if (selection.data[0] === 'damage') {
                             this.attack.damage.parts[0].value.dice = adjustDice(this.attack.damage.parts[0].value.dice);
                         } else {
                             this.attack.range = adjustRange(this.attack.range);
                         }
                         break;
-                    case 'resilient':
+                    case 'stress':
                         this.resources.stress.bonus += selection.value;
                         break;
-                    case 'aware':
+                    case 'evasion':
                         this.evasion.bonus += selection.value;
                         break;
-                    case 'intelligent':
+                    case 'experience':
                         Object.keys(this.experiences).forEach(key => {
                             const experience = this.experiences[key];
                             experience.bonus += selection.value;
@@ -118,6 +118,10 @@ export default class DhCompanion extends BaseDataActor {
             experience.total = experience.value + experience.bonus;
         }
 
+        if (this.partner) {
+            this.partner.system.resources.hope.max += this.resources.hope;
+        }
+
         this.resources.stress.maxTotal = this.resources.stress.max + this.resources.stress.bonus;
         this.evasion.total = this.evasion.value + this.evasion.bonus;
     }
@@ -129,7 +133,9 @@ export default class DhCompanion extends BaseDataActor {
         };
     }
 
-    _preDelete() {
-        /* Null Character Companion field */
+    async _preDelete() {
+        if (this.partner) {
+            await this.partner.update({ 'system.companion': null });
+        }
     }
 }

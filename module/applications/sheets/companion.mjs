@@ -1,3 +1,4 @@
+import { GMUpdateEvent, socketEvent } from '../../helpers/socket.mjs';
 import DhCompanionlevelUp from '../levelup/companionLevelup.mjs';
 import DaggerheartSheet from './daggerheart-sheet.mjs';
 
@@ -31,9 +32,15 @@ export default class DhCompanionSheet extends DaggerheartSheet(ActorSheetV2) {
     async _prepareContext(_options) {
         const context = await super._prepareContext(_options);
         context.document = this.document;
-        context.playerCharacters = game.users
-            .filter(x => !x.isGM && x.character)
-            .map(x => ({ key: x.character.uuid, name: x.character.name }));
+        context.playerCharacters = game.actors
+            .filter(
+                x =>
+                    x.type === 'character' &&
+                    (x.ownership.default === 3 ||
+                        x.ownership[game.user.id] === 3 ||
+                        this.document.system.partner?.uuid === x.uuid)
+            )
+            .map(x => ({ key: x.uuid, name: x.name }));
 
         return context;
     }
@@ -48,7 +55,22 @@ export default class DhCompanionSheet extends DaggerheartSheet(ActorSheetV2) {
             const partner = game.actors.find(a => a.uuid === event.target.value);
             await partner.update({ 'system.companion': this.document.uuid });
         } else {
-            await this.document.system.partner.update({ 'system.companion': null });
+            const update = { 'system.companion': null };
+            if (
+                this.document.system.partner.ownership.default !== 3 &&
+                this.document.system.partner.ownership[game.user.id] !== 3
+            ) {
+                await game.socket.emit(`system.${SYSTEM.id}`, {
+                    action: socketEvent.GMUpdate,
+                    data: {
+                        action: GMUpdateEvent.UpdateDocument,
+                        uuid: this.document.system.partner.uuid,
+                        update: update
+                    }
+                });
+            } else {
+                await this.document.system.partner.update(update);
+            }
         }
 
         await this.document.update({ 'system.partner': event.target.value });

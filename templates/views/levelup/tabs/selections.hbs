@@ -117,7 +117,7 @@
                 <h3>{{localize "DAGGERHEART.Application.LevelUp.summary.vicious"}}</h3>
                 {{#each this.vicious}}
                     <div class="levelup-radio-choices">
-                        {{radioBoxes (concat "levelup." this.path ".data") @root.viciousChoices checked=this.data}}
+                        {{radioBoxes (concat "levelup." this.path ".data") @root.viciousChoices checked=(lookup this.data 0)}}
                     </div>
                 {{/each}}
             </div>

@@ -7,7 +7,8 @@ export default class DhLevelData extends foundry.abstract.DataModel {
         return {
             level: new fields.SchemaField({
                 current: new fields.NumberField({ required: true, integer: true, initial: 1 }),
-                changed: new fields.NumberField({ required: true, integer: true, initial: 1 })
+                changed: new fields.NumberField({ required: true, integer: true, initial: 1 }),
+                bonuses: new fields.TypedObjectField(new fields.NumberField({ integer: true, nullable: false }))
             }),
             levelups: new fields.TypedObjectField(
                 new fields.SchemaField({

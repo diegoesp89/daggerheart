@@ -59,13 +59,16 @@ class DhLevelOption extends foundry.abstract.DataModel {
 }
 
 export const CompanionLevelOptionType = {
-    lightInTheDark: {
-        id: 'lightInTheDark',
+    hope: {
+        id: 'hope',
         label: 'Light In The Dark'
     },
-    createComfort: {
-        id: 'createComfort',
-        label: 'Create Comfort'
+    creatureComfort: {
+        id: 'creatureComfort',
+        label: 'Creature Comfort'
+        // actions: [
+
+        // ],
     },
     armored: {
         id: 'armored',
@@ -390,20 +393,20 @@ export const defaultCompanionTier = {
                     minCost: 1,
                     type: LevelOptionType.experience.id,
                     value: 1,
-                    amount: 2
+                    amount: 1
                 },
-                lightInTheDark: {
+                hope: {
                     label: 'DAGGERHEART.LevelUp.Options.lightInTheDark',
                     checkboxSelections: 1,
                     minCost: 1,
-                    type: CompanionLevelOptionType.lightInTheDark.id,
+                    type: CompanionLevelOptionType.hope.id,
                     value: 1
                 },
                 creatureComfort: {
                     label: 'DAGGERHEART.LevelUp.Options.creatureComfort',
                     checkboxSelections: 1,
                     minCost: 1,
-                    type: CompanionLevelOptionType.createComfort.id,
+                    type: CompanionLevelOptionType.creatureComfort.id,
                     value: 1
                 },
                 armored: {
@@ -421,11 +424,11 @@ export const defaultCompanionTier = {
                     value: 1,
                     amount: 1
                 },
-                resilient: {
+                stress: {
                     label: 'DAGGERHEART.LevelUp.Options.resilient',
                     checkboxSelections: 3,
                     minCost: 1,
-                    type: CompanionLevelOptionType.resilient.id,
+                    type: LevelOptionType.stress.id,
                     value: 1
                 },
                 bonded: {
@@ -435,11 +438,11 @@ export const defaultCompanionTier = {
                     type: CompanionLevelOptionType.bonded.id,
                     value: 1
                 },
-                aware: {
+                evasion: {
                     label: 'DAGGERHEART.LevelUp.Options.aware',
                     checkboxSelections: 3,
                     minCost: 1,
-                    type: CompanionLevelOptionType.aware.id,
+                    type: LevelOptionType.evasion.id,
                     value: 2,
                     amount: 1
                 }

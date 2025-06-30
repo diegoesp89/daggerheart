@@ -1,12 +1,13 @@
 import LevelUpBase from './levelup.mjs';
 import { DhLevelup } from '../../data/levelup.mjs';
 import { domains } from '../../config/domainConfig.mjs';
+import { abilities } from '../../config/actorConfig.mjs';
 
 export default class DhCharacterLevelUp extends LevelUpBase {
     constructor(actor) {
         super(actor);
 
-        this.levelTiers = game.settings.get(SYSTEM.id, SYSTEM.SETTINGS.gameSettings.LevelTiers);
+        this.levelTiers = this.addBonusChoices(game.settings.get(SYSTEM.id, SYSTEM.SETTINGS.gameSettings.LevelTiers));
         const playerLevelupData = actor.system.levelData;
         this.levelup = new DhLevelup(DhLevelup.initializeData(this.levelTiers, playerLevelupData));
     }
@@ -50,7 +51,7 @@ export default class DhCharacterLevelUp extends LevelUpBase {
                     .flatMap(exp =>
                         exp.data.map(data => {
                             const experience = Object.keys(this.actor.system.experiences).find(x => x === data);
-                            return this.actor.system.experiences[experience].description;
+                            return this.actor.system.experiences[experience].name;
                         })
                     );
                 context.experienceIncreases = {

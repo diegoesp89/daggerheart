@@ -18,7 +18,11 @@ export default class DhpActor extends Actor {
     }
 
     async updateLevel(newLevel) {
-        if (this.type !== 'character' || newLevel === this.system.levelData.level.changed) return;
+        if (!['character', 'companion'].includes(this.type) || newLevel === this.system.levelData.level.changed) return;
+
+        if (this.system.companion) {
+            this.system.companion.updateLevel(newLevel);
+        }
 
         if (newLevel > this.system.levelData.level.current) {
             const maxLevel = Object.values(
@@ -67,12 +71,16 @@ export default class DhpActor extends Actor {
                 });
 
             if (experiences.length > 0) {
-                this.update({
+                const getUpdate = () => ({
                     'system.experiences': experiences.reduce((acc, key) => {
                         acc[`-=${key}`] = null;
                         return acc;
                     }, {})
                 });
+                this.update(getUpdate());
+                if (this.system.companion) {
+                    this.system.companion.update(getUpdate());
+                }
             }
 
             if (subclassFeatureState.class) {
@@ -126,10 +134,19 @@ export default class DhpActor extends Actor {
                 const experience = level.achievements.experiences[experienceKey];
                 await this.update({
                     [`system.experiences.${experienceKey}`]: {
-                        description: experience.name,
+                        name: experience.name,
                         value: experience.modifier
                     }
                 });
+
+                if (this.system.companion) {
+                    await this.system.companion.update({
+                        [`system.experiences.${experienceKey}`]: {
+                            name: '',
+                            value: experience.modifier
+                        }
+                    });
+                }
             }
 
             let multiclass = null;
