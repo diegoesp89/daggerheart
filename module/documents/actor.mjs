@@ -411,6 +411,11 @@ export default class DhpActor extends Actor {
     }
 
     async takeDamage(damage, type) {
+        if (this.type === 'companion') {
+            await this.modifyResource([{ value: 1, type: 'stress' }]);
+            return;
+        }
+
         const hpDamage =
             damage >= this.system.damageThresholds.severe
                 ? 3
