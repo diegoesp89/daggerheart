@@ -72,6 +72,7 @@ export default class DhCompanion extends BaseDataActor {
                     }
                 }
             }),
+            actions: new fields.ArrayField(new ActionField()),
             levelData: new fields.EmbeddedDataField(DhLevelData)
         };
     }

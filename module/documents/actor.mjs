@@ -1,6 +1,8 @@
 import DamageSelectionDialog from '../applications/damageSelectionDialog.mjs';
 import { GMUpdateEvent, socketEvent } from '../helpers/socket.mjs';
 import DamageReductionDialog from '../applications/damageReductionDialog.mjs';
+import { actionsTypes } from '../data/_module.mjs';
+import { LevelOptionType } from '../data/levelTier.mjs';
 
 export default class DhpActor extends Actor {
     async _preCreate(data, options, user) {
@@ -19,10 +21,6 @@ export default class DhpActor extends Actor {
 
     async updateLevel(newLevel) {
         if (!['character', 'companion'].includes(this.type) || newLevel === this.system.levelData.level.changed) return;
-
-        if (this.system.companion) {
-            this.system.companion.updateLevel(newLevel);
-        }
 
         if (newLevel > this.system.levelData.level.current) {
             const maxLevel = Object.values(
@@ -122,10 +120,15 @@ export default class DhpActor extends Actor {
                     }
                 }
             });
+
+            if (this.system.companion) {
+                this.system.companion.updateLevel(newLevel);
+            }
         }
     }
 
     async levelUp(levelupData) {
+        const actions = [];
         const levelups = {};
         for (var levelKey of Object.keys(levelupData)) {
             const level = levelupData[levelKey];
@@ -150,6 +153,7 @@ export default class DhpActor extends Actor {
             }
 
             let multiclass = null;
+            const actionIds = [];
             const domainCards = [];
             const subclassFeatureState = { class: null, multiclass: null };
             const selections = [];
@@ -157,6 +161,27 @@ export default class DhpActor extends Actor {
                 const selection = level.choices[optionKey];
                 for (var checkboxNr of Object.keys(selection)) {
                     const checkbox = selection[checkboxNr];
+
+                    const tierOption = LevelOptionType[checkbox.type];
+                    for (var actionData of tierOption.actions ?? []) {
+                        const cls = actionsTypes[actionData.type];
+                        const actionId = foundry.utils.randomID();
+                        actionIds.push(actionId);
+                        actions.push(
+                            new cls(
+                                {
+                                    // ...cls.getSourceConfig(target),
+                                    ...actionData,
+                                    _id: actionId,
+                                    name: game.i18n.localize(actionData.name),
+                                    description: game.i18n.localize(actionData.description)
+                                },
+                                {
+                                    parent: this
+                                }
+                            )
+                        );
+                    }
 
                     if (checkbox.type === 'multiclass') {
                         multiclass = {
@@ -255,6 +280,7 @@ export default class DhpActor extends Actor {
 
         await this.update({
             system: {
+                actions: [...this.system.actions, ...actions],
                 levelData: {
                     level: {
                         current: this.system.levelData.level.changed
@@ -263,6 +289,10 @@ export default class DhpActor extends Actor {
                 }
             }
         });
+
+        if (this.system.companion) {
+            this.system.companion.updateLevel(this.system.levelData.level.changed);
+        }
     }
 
     /**

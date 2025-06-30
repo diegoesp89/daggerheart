@@ -34,6 +34,16 @@
                     {{> 'systems/daggerheart/templates/sheets/global/partials/inventory-item.hbs' item=effect type=../type}}
                 {{/if}}
             {{/each}}
+            {{#each document.system.actions as |action|}}
+                {{#if (or (eq ../type 'actions'))}}
+                    {{> 'systems/daggerheart/templates/sheets/global/partials/action-item.hbs' item=action}}
+                {{/if}}
+            {{/each}}
+            {{#each document.system.companionActions as |action|}}
+                {{#if (or (eq ../type 'companionActions'))}}
+                    {{> 'systems/daggerheart/templates/sheets/global/partials/action-item.hbs' item=action partner=true}}
+                {{/if}}
+            {{/each}}
         {{/unless}}
         
     </ul>

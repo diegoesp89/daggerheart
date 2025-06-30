@@ -1,4 +1,5 @@
 import { burden } from '../../config/generalConfig.mjs';
+import ActionField from '../fields/actionField.mjs';
 import ForeignDocumentUUIDField from '../fields/foreignDocumentUUIDField.mjs';
 import DhLevelData from '../levelData.mjs';
 import BaseDataActor from './base.mjs';
@@ -96,6 +97,7 @@ export default class DhCharacter extends BaseDataActor {
                 value: new ForeignDocumentUUIDField({ type: 'Item', nullable: true }),
                 subclass: new ForeignDocumentUUIDField({ type: 'Item', nullable: true })
             }),
+            actions: new fields.ArrayField(new ActionField()),
             levelData: new fields.EmbeddedDataField(DhLevelData),
             bonuses: new fields.SchemaField({
                 armorScore: new fields.NumberField({ integer: true, initial: 0 }),
@@ -153,6 +155,17 @@ export default class DhCharacter extends BaseDataActor {
 
     get community() {
         return this.parent.items.find(x => x.type === 'community') ?? null;
+    }
+
+    // get actions() {
+    //     const generalActions = []; // Add in things like Sprint etc
+    //     const levelupActions = this.levelData.actions.filter(x => !x.partner).map(x => x.value);
+
+    //     return [...generalActions, ...levelupActions];
+    // }
+
+    get companionActions() {
+        return this.companion ? this.companion.system.actions : [];
     }
 
     get needsCharacterSetup() {

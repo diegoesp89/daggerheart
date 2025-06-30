@@ -501,6 +501,20 @@
                 "bonded": "When you mark your last Hit Point, your companion rushes to your side to comfort you. Roll a number of d6s equal to the unmarked Stress slots they have and mark them. If any roll a 6, your companion helps you up. Clear your last Hit Point and return to the scene.",
                 "aware": "Your companion gains a permanent +2 bonus to their Evasion."
             },
+            "Actions": {
+                "CreatureComfort": {
+                    "Name": "Creature Comfort",
+                    "Description": "Once per rest, when you take time during a quiet moment to give your companion love and attention, you can gain a Hope or you can both clear a Stress."
+                },
+                "Armored": {
+                    "Name": "Armored",
+                    "Description": "When your companion takes damage, you can mark one of your Armor Slots instead of marking one of their Stress."
+                },
+                "Bonded": {
+                    "Name": "Bonded",
+                    "Description": "When you mark your last Hit Point, your companion rushes to your side to comfort you. Roll a number of d6s equal to the unmarked Stress slots they have and mark them. If any roll a 6, your companion helps you up. Clear your last Hit Point and return to the scene."
+                }
+            },
             "Tier2": {
                 "Label": "Levels 2-4",
                 "InfoLabel": "At Level 2, gain an additional Experience at +2 and gain a +1 bonus to your Proficiency.",
@@ -1146,6 +1160,8 @@
                 "CharacterSetup": "Character setup isn't done yet",
                 "Level": "Level",
                 "LevelUp": "You can level up",
+                "Actions": "Actions",
+                "CompanionActions": "Companion Actions",
                 "Tabs": {
                     "Features": "Features",
                     "Inventory": "Inventory",

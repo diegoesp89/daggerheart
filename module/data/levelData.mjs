@@ -42,12 +42,17 @@ export default class DhLevelData extends foundry.abstract.DataModel {
                             amount: new fields.NumberField({ integer: true }),
                             data: new fields.ArrayField(new fields.StringField({ required: true })),
                             secondaryData: new fields.TypedObjectField(new fields.StringField({ required: true })),
-                            itemUuid: new fields.StringField({ required: true })
+                            itemUuid: new fields.StringField({ required: true }),
+                            actionIds: new fields.ArrayField(new fields.StringField())
                         })
                     )
                 })
             )
         };
+    }
+
+    get actions() {
+        return Object.values(this.levelups).flatMap(level => level.selections.flatMap(s => s.actions));
     }
 
     get canLevelUp() {
