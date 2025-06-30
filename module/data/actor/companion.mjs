@@ -76,6 +76,10 @@ export default class DhCompanion extends BaseDataActor {
         };
     }
 
+    get attackBonus() {
+        return this.attack.roll.bonus ?? 0;
+    }
+
     prepareBaseData() {
         const partnerSpellcastingModifier = this.partner?.system?.spellcastingModifiers?.main;
         const spellcastingModifier = this.partner?.system?.traits?.[partnerSpellcastingModifier]?.total;
