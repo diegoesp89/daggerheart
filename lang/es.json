@@ -1,0 +1,1571 @@
+{
+  "TYPES": {
+    "Item": {
+      "ancestry": "Ancestría",
+      "community": "Comunidad",
+      "class": "Clase",
+      "subclass": "Subclase",
+      "feature": "Rasgo",
+      "domainCard": "Carta de Dominio",
+      "consumable": "Consumible",
+      "miscellaneous": "Misceláneo",
+      "weapon": "Arma",
+      "armor": "Armadura"
+    },
+    "Actor": {
+      "character": "Personaje",
+      "adversary": "Adversario",
+      "environment": "Entorno"
+    }
+  },
+  "DAGGERHEART": {
+    "Settings": {
+      "Menu": {
+        "Automation": {
+          "Name": "Configuración de Automatización",
+          "Label": "Configurar Automatización",
+          "Hint": "Diversos ajustes para automatizar la gestión de recursos y más"
+        },
+        "Homebrew": {
+          "Name": "Configuración Homebrew",
+          "Label": "Configurar Homebrew",
+          "Hint": "Diversos ajustes para permitir extensiones de tipos o reglas de juego modificadas",
+          "AbilityArrayLabel": "Lista de Habilidades"
+        },
+        "Range": {
+          "Name": "Configuración de Rango de Alcance",
+          "Label": "Configurar Rango de Alcance",
+          "Hint": "Configuración del sistema de regla para mostrar rangos de alcance en Daggerheart"
+        },
+        "Appearance": {
+          "title": "Configuración de Apariencia",
+          "label": "Configuración de Apariencia",
+          "hint": "Modificar el aspecto de varias partes del sistema",
+          "name": "Configuración de Apariencia",
+          "duality": "Tiradas de Dualidad",
+          "DiceSoNice": {
+            "title": "Dice So Nice",
+            "hint": "Coloración de los dados de Esperanza y Miedo si se usa el módulo Dice So Nice.",
+            "foreground": "Frente",
+            "background": "Fondo",
+            "outline": "Contorno",
+            "edge": "Borde"
+          }
+        },
+        "VariantRules": {
+          "title": "Reglas Variantes",
+          "label": "Reglas Variantes",
+          "hint": "Aplica reglas variantes del sistema Daggerheart",
+          "name": "Reglas Variantes",
+          "actionTokens": "Fichas de Acción"
+        }
+      },
+      "Appearance": {
+        "FIELDS": {
+          "displayFear": {
+            "label": "Mostrar Miedo"
+          }
+        },
+        "FearDisplay": {
+          "Token": "Tokens",
+          "Bar": "Barra",
+          "Hide": "Ocultar"
+        }
+      },
+      "Automation": {
+        "Fear": {
+          "Name": "Miedo",
+          "Hint": "Aumenta automáticamente la reserva de miedo del GM en una tirada de dualidad de miedo."
+        },
+        "FIELDS": {
+          "hope": {
+            "label": "Esperanza",
+            "hint": "Aumenta automáticamente la esperanza del personaje en una tirada de dualidad de esperanza."
+          },
+          "actionPoints": {
+            "label": "Puntos de Acción",
+            "hint": "Otorga y quita puntos de acción a medida que los combatientes toman sus turnos."
+          },
+          "countdowns": {
+            "label": "Conteos",
+            "hint": "Avanza automáticamente los conteos no personalizados."
+          }
+        }
+      },
+      "Homebrew": {
+        "NewDowntimeMove": "Movimiento de Descanso",
+        "DowntimeMoves": "Movimientos de Descanso",
+        "NrChoices": "# Movimientos por Descanso",
+        "ResetMovesTitle": "Reiniciar Movimientos de Descanso {type}",
+        "ResetMovesText": "¿Estás seguro de que quieres reiniciar?",
+        "FIELDS": {
+          "maxFear": { "label": "Miedo Máximo" },
+          "traitArray": { "label": "Modificadores de Rasgos Iniciales" }
+        },
+        "Currency": {
+          "enabled": "Habilitar Reemplazos",
+          "title": "Reemplazos de Moneda",
+          "currencyName": "Nombre de Moneda",
+          "coinName": "Nombre de Moneda Pequeña",
+          "handfullName": "Nombre de Puñado",
+          "bagName": "Nombre de Bolsa",
+          "chestName": "Nombre de Cofre"
+        }
+      },
+      "Resources": {
+        "Fear": {
+          "Name": "Miedo",
+          "Hint": "La reserva de Miedo del GM."
+        },
+        "MaxFear": {
+          "Name": "Cantidad Máxima de Miedo",
+          "Hint": "La cantidad máxima de Miedo que el GM puede acumular."
+        },
+        "DisplayFear": {
+          "Name": "Estilo de Muestra de Miedo",
+          "Hint": "Cambia cómo se muestra el conteo de Miedo del GM."
+        }
+      },
+      "General": {
+        "AbilityArray": {
+          "Name": "Arreglo de Puntuaciones de Habilidad",
+          "Hint": "La distribución inicial de habilidades para un personaje."
+        },
+        "RangeMeasurement": {
+          "Name": "Habilitar Medición de Alcance",
+          "Hint": "Habilita la medición de rangos con la regla según las distancias configuradas."
+        }
+      },
+      "VariantRules": {
+        "ActionTokens": {
+          "label": "Fichas de Acción",
+          "hint": "Otorga a cada jugador fichas de acción para usar en combate."
+        },
+        "FIELDS": {
+          "actionTokens": {
+            "enabled": { "label": "Habilitado" },
+            "tokens": { "label": "Fichas" }
+          },
+          "useCoins": {
+            "label": "Usar Monedas",
+            "hint": "prueba"
+          }
+        }
+      },
+      "DualityRollColor": {
+        "Name": "Esquema de Color de Tiradas de Dualidad",
+        "Hint": "El tipo de visualización para las Tiradas de Dualidad",
+        "Options": {
+          "Colorful": "Colorido",
+          "Normal": "Normal"
+        }
+      }
+    },
+    "Notification": {
+      "Info": {
+        "ClassCanOnlyHaveTwoDomains": "¡Una clase solo puede tener 2 dominios!",
+        "NoTargetsSelected": "No se seleccionaron objetivos.",
+        "SelectClassBeforeSubclass": "Selecciona una Clase antes de elegir una Subclase.",
+        "SubclassNotOfClass": "Esta Subclase no pertenece a tu Clase actual.",
+        "AttackTargetDoesNotExist": "El token objetivo ya no existe."
+      },
+      "Error": {
+        "ActionRequiresTarget": "La acción requiere al menos un objetivo.",
+        "NoAssignedPlayerCharacter": "No tienes un personaje asignado.",
+        "NoSelectedToken": "No has seleccionado un token.",
+        "OnlyUseableByPC": "Solo se puede usar con un token de personaje jugador.",
+        "DualityParsing": "La tirada de dualidad no está correctamente formateada.",
+        "AttributeFaulty": "El atributo proporcionado no existe."
+      }
+    },
+    "General": {
+      "Name": "Nombre",
+      "Hope": "Esperanza",
+      "Fear": "Miedo",
+      "Duality": "Dualidad",
+      "Check": "Chequeo de {check}",
+      "CriticalSuccess": "Éxito Crítico",
+      "Advantage": {
+        "Full": "Ventaja",
+        "Short": "Vent."
+      },
+      "Disadvantage": {
+        "Full": "Desventaja",
+        "Short": "Desv."
+      },
+      "OK": "Aceptar",
+      "Cancel": "Cancelar",
+      "Or": "O",
+      "Enabled": "Habilitado",
+      "Description": "Descripción",
+      "Modifier": "Modificador",
+      "Features": "Rasgos",
+      "proficiency": "Pericia",
+      "unarmored": "Sin armadura",
+      "Experience": {
+        "Single": "Experiencia",
+        "plural": "Experiencias"
+      },
+      "Adversary": {
+        "Singular": "Adversario",
+        "Plural": "Adversarios"
+      },
+      "Character": {
+        "Singular": "Personaje",
+        "Plural": "Personajes"
+      },
+      "RefreshType": {
+        "Session": "Sesión",
+        "Shortrest": "Descanso Corto",
+        "Longrest": "Descanso Largo"
+      },
+      "Damage": {
+        "Severe": "Severo",
+        "Major": "Mayor",
+        "Minor": "Menor",
+        "None": "Ninguno"
+      }
+    },
+    "ActionType": {
+      "Passive": "Pasivo",
+      "Action": "Acción",
+      "Reaction": "Reacción"
+    },
+    "Abilities": {
+      "agility": {
+        "name": "Agilidad",
+        "short": "AGI",
+        "verb": {
+          "sprint": "Correr",
+          "leap": "Saltar",
+          "maneuver": "Maniobrar"
+        }
+      },
+      "strength": {
+        "name": "Fuerza",
+        "short": "FUE",
+        "verb": {
+          "lift": "Levantar",
+          "smash": "Golpear",
+          "grapple": "Agarrar"
+        }
+      },
+      "finesse": {
+        "name": "Destreza",
+        "short": "DES",
+        "verb": {
+          "control": "Controlar",
+          "hide": "Esconderse",
+          "tinker": "Trastear"
+        }
+      },
+      "instinct": {
+        "name": "Instinto",
+        "short": "INS",
+        "verb": {
+          "perceive": "Percibir",
+          "sense": "Sentir",
+          "navigate": "Navegar"
+        }
+      },
+      "presence": {
+        "name": "Presencia",
+        "short": "PRE",
+        "verb": {
+          "charm": "Encantar",
+          "perform": "Actuar",
+          "deceive": "Engañar"
+        }
+      },
+      "knowledge": {
+        "name": "Conocimiento",
+        "short": "CON",
+        "verb": {
+          "recall": "Recordar",
+          "analyze": "Analizar",
+          "comprehend": "Comprender"
+        }
+      }
+    },
+    "FeatureProperty": {
+      "SpellcastingTrait": "Rasgo de Lanzamiento de Hechizos"
+    },
+    "Condition": {
+      "vulnerable": {
+        "name": "Vulnerable",
+        "description": "Mientras una criatura sea Vulnerable, todas las tiradas que la apunten tienen ventaja.\nUna criatura ya Vulnerable no puede recibir nuevamente la condición."
+      },
+      "hidden": {
+        "name": "Oculto",
+        "description": "Mientras está Oculto, no se le pueden hacer ataques directos y las tiradas contra ellos tienen desventaja.\nCuando una criatura Oculta se mueve o ataca, deja de estar Oculta. Sin embargo, si la criatura empieza un ataque Oculta, la tirada tiene ventaja; la condición se limpia después del ataque."
+      },
+      "restrained": {
+        "name": "Restringido",
+        "description": "Cuando un efecto restringe a una criatura, significa que no puede moverse hasta que se elimine esta condición.\nTodavía puede realizar acciones desde su posición actual."
+      }
+    },
+    "Tiers": {
+      "singular": "Tier",
+      "tier1": "Tier 1",
+      "tier2": "Tier 2",
+      "tier3": "Tier 3",
+      "tier4": "Tier 4"
+    },
+    "Adversary": {
+      "Type": {
+        "Bruiser": {
+          "label": "Matón",
+          "Description": "Adversarios duros con ataques poderosos."
+        },
+        "Horde": {
+          "label": "Horda",
+          "Description": "Una Horda representa un grupo de enemigos que atacan en conjunto."
+        },
+        "Leader": {
+          "label": "Líder",
+          "Description": "Adversarios que comandan y convocan a otros enemigos."
+        },
+        "Minion": {
+          "label": "Esbirro",
+          "Description": "Enemigos básicos que son fáciles de derrotar pero peligrosos en grupo."
+        },
+        "Ranged": {
+          "label": "A Distancia",
+          "Description": "Adversarios que atacan desde lejos."
+        },
+        "Skulk": {
+          "label": "Acechador",
+          "Description": "Adversarios que maniobran y aprovechan oportunidades para emboscar a sus oponentes."
+        },
+        "Social": {
+          "label": "Social",
+          "Description": "Adversarios que son amenazas o desafíos interpersonales."
+        },
+        "Solo": {
+          "label": "Solo",
+          "Description": "Diseñado para presentar un desafío para todo el grupo."
+        },
+        "Standard": {
+          "label": "Estándar",
+          "Description": "Adversarios comunes."
+        },
+        "Support": {
+          "label": "Soporte",
+          "Description": "Enemigos que potencian a sus aliados o interfieren con sus oponentes."
+        }
+      },
+      "Trait": {
+        "Relentless": {
+          "Name": "Implacable",
+          "Description": "Un enemigo con Implacable puede activarse hasta X veces durante un turno del GM si hay suficientes fichas de acción.",
+          "Tip": "Útil para adversarios muy rápidos, peligrosos o que pelean solos."
+        },
+        "Slow": {
+          "Name": "Lento",
+          "Description": "Un enemigo con Lento cuesta X fichas de acción para activarse.",
+          "Tip": "Ideal para criaturas poderosas que actúan lentamente, como ogros enormes."
+        },
+        "Minion": {
+          "Name": "Esbirro",
+          "Description": "Por cada X daño que un PJ inflija a este enemigo, también inflige 1 PV a un esbirro adicional en el alcance del ataque.",
+          "Tip": "Perfecto para escenas con muchos enemigos débiles que pueden ser abatidos en masa."
+        }
+      }
+    },
+    "Environment": {
+      "Type": {
+        "Exploration": {
+          "label": "Exploración",
+          "description": ""
+        },
+        "Social": {
+          "label": "Social",
+          "description": ""
+        },
+        "Traversal": {
+          "label": "Travesía",
+          "description": ""
+        },
+        "Event": {
+          "label": "Evento",
+          "description": ""
+        }
+      }
+    },
+    "Domains": {
+      "arcana": {
+        "label": "Arcano",
+        "Description": "El dominio del uso innato o instintivo de la magia. Quienes siguen este camino canalizan fuerzas enigmáticas para manipular elementos y energía. Ofrece poder volátil pero muy potente."
+      },
+      "blade": {
+        "label": "Filo",
+        "Description": "El dominio de los maestros de las armas. Exige estudio y dedicación para obtener poder mortal sobre otros."
+      },
+      "bone": {
+        "label": "Hueso",
+        "Description": "El dominio de la agilidad y el dominio táctico del propio cuerpo y el de los demás en combate."
+      },
+      "codex": {
+        "label": "Códice",
+        "Description": "El dominio del conocimiento mágico a través de recetas, libros, pergaminos y símbolos. Brinda comprensión versátil a quienes buscan más allá de lo común."
+      },
+      "grace": {
+        "label": "Gracia",
+        "Description": "El dominio del carisma. A través del encanto, la actuación o la manipulación, los usuarios doblan la percepción a su voluntad."
+      },
+      "midnight": {
+        "label": "Medianoche",
+        "Description": "El dominio de las sombras y el secreto. Ideal para quienes practican el arte de la oscuridad y la intriga."
+      },
+      "sage": {
+        "label": "Sabio",
+        "Description": "El dominio del mundo natural. Permite canalizar la vitalidad de la tierra y la ferocidad de las bestias."
+      },
+      "splendor": {
+        "label": "Esplendor",
+        "Description": "El dominio de la vida y la muerte. Permite sanar y controlar la delgada línea entre ambas."
+      },
+      "valor": {
+        "label": "Valor",
+        "Description": "El dominio de la protección. Ofrece fuerza para defender a los aliados."
+      }
+    },
+    "Domain": {
+      "CardTypes": {
+        "ability": "Habilidad",
+        "spell": "Hechizo",
+        "grimoire": "Grimorio"
+      }
+    },
+    "Combat": {
+      "giveSpotlight": "Dar el Protagonismo",
+      "requestSpotlight": "Pedir el Protagonismo",
+      "requestingSpotlight": "Solicitando el Protagonismo",
+      "combatStarted": "Activo"
+    },
+    "CharacterCreation": {
+      "Title": "{actor} - Creación de Personaje",
+      "TraitIncreases": "Aumentos de Rasgos",
+      "SuggestedTraits": "Rasgos Sugeridos",
+      "InitialExperiences": "Experiencias Iniciales",
+      "Heritage": "Herencia",
+      "SelectAncestry": "Selecciona Ancestría",
+      "SelectCommunity": "Selecciona Comunidad",
+      "SelectClass": "Selecciona Clase",
+      "SelectSubclass": "Selecciona Subclase",
+      "SelectArmor": "Selecciona Armadura",
+      "SelectPrimaryWeapon": "Selecciona Arma Principal",
+      "SelectSecondaryWeapon": "Selecciona Arma Secundaria",
+      "SuggestedArmor": "Armadura Sugerida",
+      "SuggestedWeapons": "Armas Sugeridas",
+      "SuggestedPrimaryWeapon": "Arma Principal Sugerida",
+      "SuggestedSecondaryWeapon": "Arma Secundaria Sugerida",
+      "StartingItems": "Objetos Iniciales",
+      "Choice": "Elección",
+      "NewExperience": "Nueva Experiencia...",
+      "FinishCreation": "Terminar Creación del Personaje",
+      "Tabs": {
+        "Optional": "Opcional",
+        "Setup": "Configuración",
+        "Equipment": "Equipo",
+        "Story": "Historia"
+      },
+      "Notifications": {
+        "SubclassNotInClass": "Esta subclase no pertenece a la clase seleccionada.",
+        "MissingClass": "Aún no has seleccionado una clase.",
+        "WrongDomain": "La carta no pertenece a tus dominios de clase.",
+        "CardTooHighLevel": "¡La carta es de nivel demasiado alto!",
+        "DuplicateCard": "No puedes elegir la misma carta más de una vez.",
+        "NotPrimary": "¡El arma no es un arma primaria!",
+        "NotSecondary": "¡El arma no es un arma secundaria!",
+        "ItemTooHighTier": "El objeto debe ser de Tier 1",
+        "PrimaryIsTwoHanded": "¡No puedes elegir un arma secundaria con un arma principal a dos manos!"
+      }
+    },
+    "LevelUp": {
+      "Options": {
+        "trait": "Gana +1 en dos rasgos no marcados y márcalos.",
+        "hitPoint": "Gana permanentemente una casilla de Puntos de Vida.",
+        "stress": "Gana permanentemente una casilla de Estrés.",
+        "experience": "Gana permanentemente +1 en dos experiencias.",
+        "domainCard": "Elige una carta de dominio adicional de tu nivel o menor de un dominio que tengas (hasta nivel {maxLevel})",
+        "evasion": "Gana permanentemente +1 en tu Evasión.",
+        "subclass": "Obtén una carta de subclase mejorada. Luego tacha la opción de multiclase de este nivel.",
+        "proficiency": "Aumenta tu Pericia en +1.",
+        "multiclass": "Multiclase: elige una clase adicional, luego tacha la opción de subclase mejorada y la otra opción de multiclase en esta hoja."
+      },
+      "Tier2": {
+        "Label": "Niveles 2-4",
+        "InfoLabel": "En Nivel 2, gana una Experiencia adicional con +2 y +1 a tu Pericia.",
+        "Pretext": "Elige dos opciones de la lista de abajo",
+        "Posttext": "Toma una carta de dominio adicional de tu nivel o menor de un dominio que tengas."
+      },
+      "Tier3": {
+        "Label": "Niveles 5-7",
+        "InfoLabel": "En Nivel 5, toma una Experiencia adicional y limpia todas las marcas en los Rasgos de Personaje.",
+        "Pretext": "Al subir de nivel, regístralo en tu hoja y elige dos opciones de la lista o alguna no marcada del nivel anterior.",
+        "Posttext": "Toma una carta de dominio adicional de tu nivel o menor de un dominio que tengas."
+      },
+      "Tier4": {
+        "Label": "Niveles 8-10",
+        "InfoLabel": "En Nivel 8, toma una Experiencia adicional y limpia todas las marcas en los Rasgos de Personaje.",
+        "Pretext": "Al subir de nivel, regístralo en tu hoja y elige dos opciones de la lista o alguna no marcada del nivel anterior.",
+        "Posttext": "Toma una carta de dominio adicional de tu nivel o menor de un dominio que tengas."
+      },
+      "ChoiceDescriptions": {
+        "Attributes": "Gana +1 en dos rasgos no marcados y márcalos.",
+        "HitPointSlots": "Gana permanentemente una casilla de Puntos de Vida.",
+        "StressSlots": "Gana permanentemente una casilla de Estrés.",
+        "Experiences": "Gana permanentemente +1 en dos experiencias.",
+        "DomainCard": "Elige una carta de dominio adicional de tu nivel o menor de un dominio que tengas (hasta nivel {maxLevel})",
+        "Evasion": "Gana permanentemente +1 en tu Evasión.",
+        "Proficiency": "Aumenta tu Pericia en +1.",
+        "Subclass": "Obtén una carta de subclase mejorada. Luego tacha la opción de multiclase de este nivel.",
+        "Multiclass": "Multiclase: elige una clase adicional, luego tacha la opción de subclase mejorada y la otra opción de multiclase en esta hoja."
+      }
+    },
+    "Downtime": {
+      "DowntimeHeader": "Movimientos de Descanso ({current}/{max})",
+      "ShortRest": {
+        "title": "Descanso Corto",
+        "TendToWounds": {
+          "Name": "Atender Heridas",
+          "Description": "Describe cómo te curas rápidamente, luego limpia un número de Puntos de Vida igual a 1d4 + tu nivel. Puedes hacerlo en un aliado en su lugar."
+        },
+        "ClearStress": {
+          "Name": "Aliviar Estrés",
+          "Description": "Describe cómo te relajas o recuperas la compostura, luego limpia un número de Estrés igual a 1d4 + tu nivel."
+        },
+        "RepairArmor": {
+          "Name": "Reparar Armadura",
+          "Description": "Describe cómo reparas tu armadura rápidamente, luego limpia un número de Casillas de Armadura igual a 1d4 + tu nivel. Puedes hacerlo en la armadura de un aliado en su lugar."
+        },
+        "Prepare": {
+          "Name": "Prepararse",
+          "Description": "Describe cómo te preparas para lo que viene, luego gana una Esperanza. Si te preparas con miembros de tu grupo, cada uno gana 2 Esperanzas."
+        }
+      },
+      "LongRest": {
+        "title": "Descanso Largo",
+        "TendToWounds": {
+          "Name": "Atender Heridas",
+          "Description": "Describe cómo te curas y remueves todos los Puntos de Vida marcados. Puedes hacerlo en un aliado en su lugar."
+        },
+        "ClearStress": {
+          "Name": "Aliviar Estrés",
+          "Description": "Describe cómo te relajas o recuperas la compostura, y limpia todo el Estrés marcado."
+        },
+        "RepairArmor": {
+          "Name": "Reparar Armadura",
+          "Description": "Describe cómo reparas tu armadura y limpia todas las Casillas de Armadura. Puedes hacerlo en la armadura de un aliado en su lugar."
+        },
+        "Prepare": {
+          "Name": "Prepararse",
+          "Description": "Describe cómo te preparas para la próxima aventura, luego gana una Esperanza. Si lo haces con el grupo, cada uno puede tomar dos Esperanzas."
+        },
+        "WorkOnAProject": {
+          "Name": "Trabajar en un Proyecto",
+          "Description": "Inicia o continúa trabajando en un proyecto."
+        }
+      },
+      "Notifications": {
+        "NoMoreMoves": "No puedes elegir más movimientos de descanso."
+      }
+    },
+    "DeathMoves": {
+      "AvoidDeath": {
+        "Name": "Evitar la Muerte",
+        "Description": "Quedas inconsciente temporalmente y describes con el GM cómo la situación empeora. Luego tira tu dado de Miedo; si su valor es igual o menor a tu Nivel, recibes una Cicatriz."
+      },
+      "RiskItAll": {
+        "Name": "Arriesgarlo Todo",
+        "Description": "Tira tus Dados de Dualidad. Si el dado de Esperanza es mayor, permaneces en pie y limpias Puntos de Vida y/o Estrés igual al valor del dado (divide el valor como prefieras). Si el dado de Miedo es mayor, cruzas el velo de la muerte. Si hay empate, permaneces en pie y limpias todos los Puntos de Vida y Estrés."
+      },
+      "BlazeOfGlory": {
+        "Name": "Último Acto",
+        "Description": "Aceptas la muerte de tu personaje. Realiza una acción (a discreción del GM) que será un éxito crítico automático, luego cruza el velo de la muerte."
+      }
+    },
+    "Burden": {
+      "oneHanded": "A Una Mano",
+      "twoHanded": "A Dos Manos"
+    },
+    "Range": {
+      "self": {
+        "name": "Propio",
+        "description": "significa a ti mismo."
+      },
+      "melee": {
+        "name": "Cuerpo a Cuerpo",
+        "description": "significa que el objetivo está a distancia de toque. Para PJs, suele ser hasta unos pocos pies, pero puede ser mayor en PNJs grandes."
+      },
+      "veryClose": {
+        "name": "Muy Cerca",
+        "description": "significa ver detalles finos del objetivo, normalmente entre 1,5-3 metros. Puedes alcanzar este rango con otras acciones. En un mapa, equivale a unos 5-7 cm."
+      },
+      "close": {
+        "name": "Cerca",
+        "description": "significa ver detalles prominentes a 3-10 metros. Puedes llegar a este rango como parte de otras acciones. En un mapa, equivale a unos 12-15 cm."
+      },
+      "far": {
+        "name": "Lejos",
+        "description": "significa distinguir la apariencia de un objetivo sin detalles finos, normalmente 10-30 metros. Puede requerir un chequeo de Agilidad para llegar de forma segura. En un mapa, equivale a unos 25-28 cm."
+      },
+      "veryFar": {
+        "name": "Muy Lejos",
+        "description": "significa ver la silueta de un objetivo sin detalles, normalmente 30-100 metros. Puede requerir un chequeo de Agilidad. En un mapa, es cualquier distancia más allá de 'lejos' pero aún visible."
+      }
+    },
+    "DamageType": {
+      "physical": {
+        "name": "Físico",
+        "abbreviation": "Fis"
+      },
+      "magical": {
+        "name": "Mágico",
+        "abbreviation": "Mag"
+      }
+    },
+    "HealingType": {
+      "HitPoints": {
+        "Name": "Puntos de Vida",
+        "Abbreviation": "PV"
+      },
+      "Stress": {
+        "Name": "Estrés",
+        "Abbreviation": "EST"
+      },
+      "Hope": {
+        "Name": "Esperanza",
+        "Abbreviation": "ESP"
+      },
+      "ArmorStack": {
+        "Name": "Casilla de Armadura",
+        "Abbreviation": "CA"
+      }
+    },
+    "ArmorFeature": {
+      "Burning": {
+        "Name": "Ardiente",
+        "Description": "Cuando un enemigo te ataca a Cuerpo a Cuerpo, marca un Estrés."
+      },
+      "Channeling": {
+        "Name": "Canalizador",
+        "Description": "+1 a tiradas de Hechizos."
+      },
+      "Difficult": {
+        "Name": "Difícil",
+        "Description": "-1 a todos los rasgos y Evasión."
+      },
+      "Flexible": {
+        "Name": "Flexible",
+        "Description": "+1 a Evasión."
+      },
+      "Fortified": {
+        "Name": "Fortificada",
+        "Description": "Cuando marcas una Casilla de Armadura, reduces la severidad del ataque en dos niveles en vez de uno."
+      },
+      "Gilded": {
+        "Name": "Dorada",
+        "Description": "+1 a Presencia."
+      },
+      "Heavy": {
+        "Name": "Pesada",
+        "Description": "-1 a Evasión."
+      },
+      "Hopeful": {
+        "Name": "Esperanzada",
+        "Description": "Cuando gastarías una Esperanza, puedes marcar una Casilla de Armadura en su lugar."
+      },
+      "Impenetrable": {
+        "Name": "Impenetrable",
+        "Description": "Una vez por descanso corto, cuando marcarías tu último Punto de Vida, puedes marcar un Estrés en su lugar."
+      },
+      "Magic": {
+        "Name": "Mágica",
+        "Description": "No puedes marcar Casillas de Armadura para reducir daño físico."
+      },
+      "Painful": {
+        "Name": "Dolorosa",
+        "Description": "Cada vez que marcas una Casilla de Armadura, debes marcar un Estrés."
+      },
+      "Physical": {
+        "Name": "Física",
+        "Description": "No puedes marcar Casillas de Armadura para reducir daño mágico."
+      },
+      "Quiet": {
+        "Name": "Silenciosa",
+        "Description": "Ganas +2 en tiradas para moverte sigilosamente."
+      },
+      "Reinforced": {
+        "Name": "Reforzada",
+        "Description": "Cuando marcas tu última Casilla de Armadura, aumentas tus umbrales de daño en +2 hasta limpiar al menos 1 casilla."
+      },
+      "Resilient": {
+        "Name": "Resistente",
+        "Description": "Antes de marcar tu última Casilla de Armadura, tira un d6. Con un 6, reduces la severidad en un nivel sin marcar casilla."
+      },
+      "Sharp": {
+        "Name": "Afilada",
+        "Description": "En un ataque exitoso a Cuerpo a Cuerpo, añade un d4 al daño."
+      },
+      "Shifting": {
+        "Name": "Escurridiza",
+        "Description": "Cuando te ataquen, puedes marcar una Casilla de Armadura para dar desventaja al ataque."
+      },
+      "Timeslowing": {
+        "Name": "Ralentizadora",
+        "Description": "Marca una Casilla de Armadura para tirar un d4 y sumar su resultado a tu Evasión contra un ataque entrante."
+      },
+      "Truthseeking": {
+        "Name": "Buscadora de Verdad",
+        "Description": "Esta armadura brilla si una criatura en rango Cercano dice una mentira."
+      },
+      "VeryHeavy": {
+        "Name": "Muy Pesada",
+        "Description": "-2 a Evasión; -1 a Agilidad."
+      },
+      "Warded": {
+        "Name": "Protegida",
+        "Description": "Reduces el daño mágico entrante en tu Puntuación de Armadura antes de aplicarlo a tus umbrales."
+      }
+    },
+    "WeaponFeature": {
+      "Barrier": {
+        "Name": "Barrera",
+        "Description": "+{armorScore} a Puntuación de Armadura; -1 a Evasión."
+      },
+      "Bonded": {
+        "Name": "Vinculada",
+        "Description": "Ganas un bono al daño igual a tu nivel."
+      },
+      "Bouncing": {
+        "Name": "Rebotadora",
+        "Description": "Marca 1 o más Estrés para golpear esa cantidad de objetivos en rango."
+      },
+      "Brave": {
+        "Name": "Valiente",
+        "Description": "-1 a Evasión; +3 al umbral de daño Severo."
+      },
+      "Brutal": {
+        "Name": "Brutal",
+        "Description": "Si tiras el valor máximo en un dado de daño, tira un dado adicional."
+      },
+      "Charged": {
+        "Name": "Cargada",
+        "Description": "Marca un Estrés para +1 a Pericia en un ataque con arma primaria."
+      },
+      "Concussive": {
+        "Name": "Conmocionante",
+        "Description": "En un ataque exitoso, puedes gastar una Esperanza para empujar al objetivo a rango Lejano."
+      },
+      "Cumbersome": {
+        "Name": "Torpe",
+        "Description": "-1 a Destreza."
+      },
+      "Deadly": {
+        "Name": "Mortal",
+        "Description": "Al infligir daño Severo, el objetivo marca un PV adicional."
+      },
+      "Deflecting": {
+        "Name": "Desviadora",
+        "Description": "Cuando te ataquen, puedes marcar una Casilla de Armadura para sumar tu Puntuación de Armadura a tu Evasión contra el ataque."
+      },
+      "Destructive": {
+        "Name": "Destructiva",
+        "Description": "-1 a Agilidad; en un ataque exitoso, todos los adversarios a rango Muy Cercano marcan un Estrés."
+      },
+      "Devastating": {
+        "Name": "Devastadora",
+        "Description": "Antes de hacer una tirada de ataque, puedes marcar un Estrés para usar un d20 como dado de daño."
+      },
+      "DoubleDuty": {
+        "Name": "Doble Uso",
+        "Description": "+1 a Armadura; +1 al daño del arma primaria en rango Cuerpo a Cuerpo."
+      },
+      "DoubledUp": {
+        "Name": "Doble Golpe",
+        "Description": "Al atacar con tu arma primaria, puedes hacer daño a otro objetivo en rango Cuerpo a Cuerpo."
+      },
+      "Dueling": {
+        "Name": "Duelo",
+        "Description": "Si no hay otras criaturas a rango Cercano del objetivo, ganas ventaja en la tirada de ataque."
+      },
+      "Eruptive": {
+        "Name": "Eruptiva",
+        "Description": "En un ataque exitoso a Cuerpo a Cuerpo, otros adversarios a rango Muy Cercano deben superar una tirada de reacción (14) o recibir la mitad del daño."
+      },
+      "Grappling": {
+        "Name": "Atrapadora",
+        "Description": "En un ataque exitoso, puedes gastar una Esperanza para Restringir al objetivo o arrastrarlo a rango Cuerpo a Cuerpo."
+      },
+      "Greedy": {
+        "Name": "Codiciosa",
+        "Description": "Gasta un puñado de oro para +1 a Pericia en una tirada de daño."
+      },
+      "Healing": {
+        "Name": "Sanadora",
+        "Description": "Durante un descanso, limpia automáticamente un Punto de Vida."
+      },
+      "Heavy": {
+        "Name": "Pesada",
+        "Description": "-1 a Evasión."
+      },
+      "Hooked": {
+        "Name": "Enganchada",
+        "Description": "En un ataque exitoso, puedes arrastrar al objetivo a rango Cuerpo a Cuerpo."
+      },
+      "Hot": {
+        "Name": "Candente",
+        "Description": "Este arma corta material sólido."
+      },
+      "Invigorating": {
+        "Name": "Vigorosa",
+        "Description": "En un ataque exitoso, tira un d4; con un 4, limpia un Estrés."
+      },
+      "Lifestealing": {
+        "Name": "Robavidas",
+        "Description": "En un ataque exitoso, tira un d6; con un 6, limpia un PV o un Estrés."
+      },
+      "LockedOn": {
+        "Name": "Fijada",
+        "Description": "En un ataque exitoso, tu próximo ataque al mismo objetivo con el arma primaria acierta automáticamente."
+      },
+      "Lucky": {
+        "Name": "Suertuda",
+        "Description": "En un ataque fallido, puedes marcar un Estrés para repetir la tirada."
+      },
+      "Long": {
+        "Name": "Larga",
+        "Description": "El ataque de este arma alcanza a todos los adversarios en línea dentro del rango."
+      },
+      "Massive": {
+        "Name": "Masiva",
+        "Description": "-1 a Evasión; en un ataque exitoso, tira un dado de daño adicional y descarta el más bajo."
+      },
+      "Painful": {
+        "Name": "Dolorosa",
+        "Description": "Cada vez que haces un ataque exitoso, debes marcar un Estrés."
+      },
+      "Paired": {
+        "Name": "Emparejada",
+        "Description": "+{bonusDamage} al daño del arma primaria contra objetivos a Cuerpo a Cuerpo."
+      },
+      "Parry": {
+        "Name": "Parada",
+        "Description": "Cuando te ataquen, tira los dados de daño de tu arma. Si algún dado del atacante coincide en valor, esos resultados se descartan antes de sumar el daño."
+      },
+      "Persuasive": {
+        "Name": "Persuasiva",
+        "Description": "Antes de una tirada de Presencia, puedes marcar un Estrés para +2 al resultado."
+      },
+      "Pompous": {
+        "Name": "Pomposa",
+        "Description": "Debes tener Presencia 0 o menor para usar esta arma."
+      },
+      "Powerful": {
+        "Name": "Poderosa",
+        "Description": "En un ataque exitoso, tira un dado de daño adicional y descarta el más bajo."
+      },
+      "Protective": {
+        "Name": "Protectora",
+        "Description": "+{tier} a la Puntuación de Armadura."
+      },
+      "Quick": {
+        "Name": "Rápida",
+        "Description": "Cuando ataques, puedes marcar un Estrés para apuntar a otro objetivo dentro del rango."
+      },
+      "Reliable": {
+        "Name": "Fiable",
+        "Description": "+1 a tiradas de ataque."
+      },
+      "Reloading": {
+        "Name": "Recarga",
+        "Description": "Después de un ataque, tira un d6. Con un 1, debes marcar un Estrés para recargar el arma antes de volver a usarla."
+      },
+      "Retractable": {
+        "Name": "Retráctil",
+        "Description": "La hoja puede ocultarse en la empuñadura para evitar ser detectada."
+      },
+      "Returning": {
+        "Name": "Retornante",
+        "Description": "Cuando se lanza dentro del rango, el arma regresa a tu mano inmediatamente después del ataque."
+      },
+      "Scary": {
+        "Name": "Aterradora",
+        "Description": "En un ataque exitoso, el objetivo debe marcar un Estrés."
+      },
+      "Serrated": {
+        "Name": "Serrada",
+        "Description": "Si tiras un 1 en el dado de daño, inflige 8 de daño en su lugar."
+      },
+      "Sharpwing": {
+        "Name": "Ala Afilada",
+        "Description": "Ganas un bono al daño igual a tu Agilidad."
+      },
+      "Sheltering": {
+        "Name": "Protegente",
+        "Description": "Cuando marcas una Casilla de Armadura, reduce el daño para ti y todos los aliados a rango Cuerpo a Cuerpo que reciban el mismo daño."
+      },
+      "Startling": {
+        "Name": "Sobresaltante",
+        "Description": "Marca un Estrés para hacer un chasquido que obliga a los adversarios a rango Cuerpo a Cuerpo a retroceder a rango Cercano."
+      },
+      "Timebending": {
+        "Name": "Curvatemporal",
+        "Description": "Puedes elegir el objetivo de tu ataque después de realizar la tirada."
+      },
+      "Versatile": {
+        "Name": "Versátil",
+        "Description": "Este arma también puede usarse con estas estadísticas: {characterTrait}, {range}, {damage}."
+      }
+    },
+    "Feature": {
+      "Type": {
+        "ancestry": "Ancestría",
+        "community": "Comunidad",
+        "class": "Clase",
+        "subclass": "Subclase",
+        "classHope": "Esperanza de Clase",
+        "domainCard": "Carta de Dominio",
+        "equipment": "Equipo"
+      },
+      "ValueType": {
+        "Normal": "Normal",
+        "Input": "Entrada",
+        "Dice": "Dado"
+      },
+      "Max": "Máximo",
+      "NewEffect": "Nuevo Efecto"
+    },
+    "FeatureType": {
+      "Normal": "Normal",
+      "Input": "Entrada",
+      "Ticks": "Marcas"
+    },
+    "Application": {
+      "Downtime": {
+        "TakeDowntime": "Tomar Descanso"
+      },
+      "LevelUp": {
+        "Title": "{actor} Subida de Nivel",
+        "Tabs": {
+          "advancement": "Progreso de Nivel",
+          "selections": "Elecciones",
+          "summary": "Resumen"
+        },
+        "navigateLevel": "Al Nivel {level}",
+        "navigateToLevelup": "Volver a Subida de Nivel",
+        "navigateToSummary": "Ir al Resumen",
+        "TakeLevelUp": "Finalizar Subida de Nivel",
+        "Delevel": {
+          "title": "Volver al nivel anterior",
+          "content": "Volver a la selección anterior eliminará las elecciones hechas para este nivel. ¿Deseas continuar?"
+        },
+        "Selections": {
+          "emptyDomainCardHint": "Nivel {level} o menor de {domain}"
+        },
+        "summary": {
+          "levelAchievements": "Logros de Nivel",
+          "levelAdvancements": "Mejoras de Nivel",
+          "proficiencyIncrease": "Pericia Aumentada: {proficiency}",
+          "hpIncrease": "Puntos de Vida Aumentados: {hitPoints}",
+          "stressIncrease": "Estrés Aumentado: {stress}",
+          "evasionIncrease": "Evasión Aumentada: {evasion}",
+          "damageThresholdMajorIncrease": "Mayor: {threshold}",
+          "damageThresholdSevereIncrease": "Severo: {threshold}",
+          "newExperiences": "Nuevas Experiencias",
+          "experiencePlaceholder": "Una nueva experiencia...",
+          "domainCards": "Cartas de Dominio",
+          "subclass": "Subclase",
+          "multiclass": "Multiclase",
+          "traits": "Rasgos Aumentados",
+          "experienceIncreases": "Aumentos de Experiencia",
+          "damageThresholds": "Umbrales de Daño"
+        },
+        "notifications": {
+          "info": {
+            "insufficentAdvancements": "No te quedan mejoras disponibles.",
+            "insufficientTierAdvancements": "No tienes mejoras disponibles para este Tier."
+          },
+          "error": {
+            "domainCardWrongDomain": "No tienes acceso a ese Dominio.",
+            "domainCardToHighLevel": "La Carta de Dominio es de nivel demasiado alto.",
+            "domainCardDuplicate": "¡Ya tienes esa carta de dominio!",
+            "noSelectionsLeft": "¡No hay más elecciones disponibles!",
+            "alreadySelectedClass": "¡Ya tienes esa clase!"
+          }
+        }
+      },
+      "DeathMove": {
+        "Title": "{actor} - Movimiento de Muerte",
+        "TakeMove": "Realizar Movimiento de Muerte"
+      },
+      "RollSelection": {
+        "Title": "Opciones de Tirada"
+      },
+      "Settings": {
+        "Title": "Configuración de Daggerheart"
+      },
+      "Multiclass": {
+        "ClassSection": {
+          "Title": "Seleccionar Clase"
+        },
+        "SubclassSection": {
+          "Title": "Seleccionar Subclase"
+        },
+        "DomainSection": {
+          "Title": "Seleccionar Dominio"
+        },
+        "AlreadyOwnedDomain": "¡Ya tienes este dominio!",
+        "Finish": "Finalizar Multiclase",
+        "Close": "Cancelar"
+      },
+      "Cancel": "Cancelar"
+    },
+    "Chat": {
+      "DualityRoll": {
+        "AbilityCheckTitle": "Chequeo de {ability}"
+      },
+      "AttackRoll": {
+        "Title": "Ataque - {attack}",
+        "RollDamage": "Tirar Daño",
+        "RollHealing": "Tirar Sanación",
+        "ApplyEffect": "Aplicar Efectos"
+      },
+      "DamageRoll": {
+        "Title": "Daño - {damage}",
+        "DealDamageToTargets": "Daño a Objetivos Impactados",
+        "DealDamage": "Infligir Daño"
+      },
+      "ApplyEffect": {
+        "Title": "Aplicar Efectos - {name}"
+      },
+      "HealingRoll": {
+        "Title": "Sanar - {healing}",
+        "Heal": "Sanar"
+      },
+      "DeathMove": {
+        "Title": "Movimiento de Muerte"
+      },
+      "DomainCard": {
+        "Title": "Carta de Dominio"
+      },
+      "FoundationCard": {
+        "AncestryTitle": "Carta de Ancestría",
+        "CommunityTitle": "Carta de Comunidad",
+        "SubclassFeatureTitle": "Rasgo de Subclase"
+      },
+      "FeatureTitle": "Rasgo de Clase",
+      "EnvironmentTitle": "Entorno {actionType}",
+      "Downtime": {
+        "Title": "Descanso"
+      }
+    },
+    "Countdown": {
+      "FIELDS": {
+        "countdowns": {
+          "element": {
+            "name": { "label": "Nombre" },
+            "progress": {
+              "current": { "label": "Actual" },
+              "max": { "label": "Máximo" },
+              "type": {
+                "value": { "label": "Valor" },
+                "label": { "label": "Etiqueta", "hint": "Usado para personalizados" }
+              }
+            }
+          }
+        }
+      },
+      "Type": {
+        "Spotlight": "Protagonismo",
+        "Custom": "Personalizado",
+        "CharacterAttack": "Ataque de Personaje"
+      },
+      "NewCountdown": "Nuevo Conteo",
+      "AddCountdown": "Agregar Conteo",
+      "RemoveCountdownTitle": "Eliminar Conteo",
+      "RemoveCountdownText": "¿Estás seguro de que quieres eliminar el conteo: {name}?",
+      "OpenOwnership": "Editar Propiedad de Jugador",
+      "Title": "Conteos de {type}",
+      "Types": {
+        "narrative": "Narrativa",
+        "encounter": "Encuentro"
+      },
+      "Notifications": {
+        "LimitedOwnershipMaximise": "No tienes permiso para ver el modo de edición"
+      }
+    },
+    "OwnershipSelection": {
+      "Title": "Selección de Propiedad - {name}",
+      "Default": "Propiedad Predeterminada"
+    },
+    "DamageReduction": {
+      "Title": "Reducción de Daño",
+      "ArmorMarks": "Marcas de Armadura",
+      "UsedMarks": "Marcas Usadas",
+      "Stress": "Estrés",
+      "ArmorWithStress": "Gasta 1 Estrés para usar una marca extra",
+      "UnncessaryStress": "No necesitas gastar Estrés",
+      "StressReduction": "Reducir con Estrés",
+      "Notifications": {
+        "DamageAlreadyNone": "El daño ya fue reducido a cero",
+        "NoAvailableArmorMarks": "No tienes más marcas de armadura disponibles",
+        "NotEnoughStress": "No tienes suficiente Estrés",
+        "DamageIgnore": "{character} no recibió daño"
+      }
+    },
+    "Sheets": {
+      "TABS": {
+        "features": "Rasgos",
+        "effects": "Efectos",
+        "settings": "Configuración",
+        "actions": "Acciones",
+        "description": "Descripción"
+      },
+      "PC": {
+        "Name": "Nombre",
+        "Pronouns": "Pronombres",
+        "age": "Edad",
+        "faith": "Fe",
+        "ShortRest": "Tomar Descanso Corto",
+        "LongRest": "Tomar Descanso Largo",
+        "CharacterSetup": "La configuración del personaje no está completa",
+        "Level": "Nivel",
+        "LevelUp": "Puedes subir de nivel",
+        "Tabs": {
+          "Features": "Rasgos",
+          "Inventory": "Inventario",
+          "Foundation": "Fundamentos",
+          "Loadout": "Equipamiento",
+          "Vault": "Alijo",
+          "Heritage": "Herencia",
+          "Story": "Historia",
+          "biography": "Biografía",
+          "effects": "Efectos"
+        },
+        "ContextMenu": {
+          "UseItem": "Usar",
+          "Equip": "Equipar",
+          "Unequip": "Desequipar",
+          "Edit": "Editar",
+          "Delete": "Eliminar",
+          "ToLoadout": "Enviar al Equipamiento",
+          "ToVault": "Enviar al Alijo",
+          "Consume": "Consumir Objeto",
+          "SendToChat": "Enviar al Chat"
+        },
+        "Armor": {
+          "Title": "Armadura Activa"
+        },
+        "Attributes": {
+          "AttributeBaseMenuTitle": "Editar valores iniciales de atributos"
+        },
+        "Defense": {
+          "Evasion": "EVASIÓN",
+          "Armor": "ARMADURA"
+        },
+        "DomainCard": {
+          "Recall": "Recuperar",
+          "ToVault": "Al Alijo",
+          "AvailableDomainSlot": "Espacio Disponible en Equipamiento",
+          "UnavailableDomainSlot": "Disponible en nivel {level}",
+          "FoundationTitle": "Fundamento",
+          "SpecializationTitle": "Especialización",
+          "MasteryTitle": "Maestría"
+        },
+        "Experience": {
+          "Title": "Experiencia"
+        },
+        "Features": {
+          "Title": "Rasgos de Clase"
+        },
+        "Gold": {
+          "Title": "Oro",
+          "Coins": "Monedas",
+          "Handfulls": "Puñados",
+          "Bags": "Bolsas",
+          "Chests": "Cofres"
+        },
+        "Health": {
+          "Title": "PUNTOS DE VIDA & ESTRÉS",
+          "Minor": "Menor",
+          "Major": "Mayor",
+          "Severe": "Severo",
+          "DeathMoveTooltip": "Realizar Movimiento de Muerte",
+          "HealthTitle": "PV",
+          "StressTitle": "ESTRÉS"
+        },
+        "Heritage": {
+          "EmptyAncestry": "Carta de Ancestría",
+          "EmptyAncestryTip": "(Selecciona una Ancestría)",
+          "EmptyCommunity": "Carta de Comunidad",
+          "EmptyCommunityTip": "(Selecciona una Comunidad)",
+          "SubclassFoundation": "Fundamento de Subclase",
+          "SubclassFoundationTip": "(Selecciona una Subclase)",
+          "Subclass": "Mejora de Subclase",
+          "Multiclass": "Multiclase"
+        },
+        "Hope": {
+          "Title": "Esperanza",
+          "Description": "Gasta Esperanza para usar una experiencia o ayudar a un aliado."
+        },
+        "Inventory": {
+          "Title": "Inventario",
+          "InventoryArmor": "Armadura en Inventario",
+          "InventoryWeapon": "Armas en Inventario"
+        },
+        "InventoryTab": {
+          "ConsumableTitle": "Consumibles",
+          "MiscellaneousTitle": "Misceláneo",
+          "WeaponsTitle": "Armas",
+          "ArmorsTitle": "Armaduras",
+          "QuantityTitle": "Cantidad"
+        },
+        "Weapons": {
+          "Title": "Armas Activas",
+          "ProficiencyTitle": "Pericia",
+          "PrimaryTitle": "PRIMARIA",
+          "SecondaryTitle": "SECUNDARIA"
+        },
+        "Story": {
+          "BackgroundTitle": "Antecedentes",
+          "AppearanceTitle": "Apariencia",
+          "ConnectionsTitle": "Conexiones",
+          "characteristics": "Características",
+          "Scars": {
+            "Title": "Cicatrices"
+          }
+        },
+        "NewItem": "Nuevo Objeto",
+        "NewScar": "Nueva Cicatriz",
+        "DeleteConfirmation": "¿Seguro que quieres eliminar el objeto - {item}?",
+        "Errors": {
+          "missingClassOrSubclass": "El personaje no tiene clase ni subclase.",
+          "tooHighLevel": "No puedes subir el nivel del personaje más allá del máximo.",
+          "tooLowLevel": "No puedes bajar el nivel del personaje por debajo del inicial."
+        }
+      },
+      "Adversary": {
+        "FIELDS": {
+          "tier": { "label": "Tier" },
+          "type": { "label": "Tipo" },
+          "description": { "label": "Descripción" },
+          "motivesAndTactics": { "label": "Motivaciones y Tácticas" },
+          "difficulty": { "label": "Dificultad" },
+          "damageThresholds": {
+            "major": { "label": "Mayor" },
+            "severe": { "label": "Severo" }
+          },
+          "resources": {
+            "hitPoints": {
+              "value": { "label": "Actual" },
+              "max": { "label": "Máximo" }
+            },
+            "stress": {
+              "value": { "label": "Actual" },
+              "max": { "label": "Máximo" }
+            }
+          },
+          "experiences": {
+            "element": {
+              "name": { "label": "Nombre" },
+              "value": { "label": "Modificador" }
+            }
+          },
+          "attack": {
+            "name": { "label": "Nombre" },
+            "modifier": { "label": "Modificador" },
+            "range": { "label": "Rango" },
+            "damage": {
+              "value": { "label": "Daño" },
+              "type": { "label": "Tipo de Daño" }
+            }
+          }
+        },
+        "Tabs": {
+          "Main": "Datos",
+          "Information": "Información"
+        },
+        "General": "General",
+        "DamageThresholds": "Umbrales de Daño",
+        "HitPoints": "Puntos de Vida",
+        "Stress": "Estrés",
+        "Experiences": "Experiencias",
+        "Attack": "Ataque"
+      },
+      "Environment": {
+        "FIELDS": {
+          "tier": { "label": "Tier" },
+          "type": { "label": "Tipo" },
+          "difficulty": { "label": "Dificultad" }
+        },
+        "Tabs": {
+          "Main": "Datos",
+          "Information": "Información"
+        },
+        "general": "General",
+        "newAdversary": "Nuevo Adversario",
+        "newFeature": "Nuevo Rasgo",
+        "description": "Descripción",
+        "impulses": "Impulsos",
+        "potentialAdversaries": {
+          "label": "Adversarios Potenciales",
+          "placeholder": "Opcionalmente arrastra adversarios aquí"
+        },
+        "features": {
+          "label": "Rasgos"
+        }
+      },
+      "Armor": {
+        "baseScore": "Puntuación Base",
+        "feature": "Rasgo",
+        "description": "Descripción",
+        "baseThresholds": {
+          "base": "Umbrales Base",
+          "major": "Umbral Mayor",
+          "severe": "Umbral Severo"
+        }
+      },
+      "Class": {
+        "Tabs": {
+          "Features": "Rasgos",
+          "Guide": "Guía de Personaje",
+          "Items": "Objetos",
+          "Appearance": "Apariencia",
+          "settings": "Configuración"
+        },
+        "HopeFeatures": "Rasgos de Esperanza",
+        "Class Features": "Rasgos de Clase",
+        "Domains": "Dominios",
+        "DamageThresholds": {
+          "Title": "Umbrales de Daño",
+          "Minor": "Menor",
+          "Major": "Mayor",
+          "Severe": "Severo"
+        },
+        "Evasion": "Evasión",
+        "HitPoints": "Puntos de Vida",
+        "ClassFeatures": "Rasgos de Clase",
+        "Subclasses": "Subclases",
+        "Guide": {
+          "Suggestions": {
+            "Title": "Equipos Sugeridos",
+            "Traits": {
+              "Title": "Rasgos"
+            }
+          },
+          "SuggestedPrimaryWeaponTitle": "Arma Primaria",
+          "SuggestedSecondaryWeaponTitle": "Arma Secundaria",
+          "SuggestedArmorTitle": "Armadura",
+          "Inventory": {
+            "Title": "Inventario",
+            "Take": "Tomar",
+            "ThenChoose": "Luego Elegir Entre",
+            "AndEither": "Y O"
+          },
+          "Description": {
+            "Title": "Descripción del Personaje",
+            "Explanation": "Elige uno (o más) de cada línea, o inventa los tuyos",
+            "Clothes": "Ropa",
+            "Eyes": "Ojos",
+            "Body": "Cuerpo",
+            "Color": "Color",
+            "Attitude": "Actitud"
+          },
+          "Extra": {
+            "Title": "Extra",
+            "Subtitle": "Título"
+          },
+          "BackgroundQuestions": {
+            "Title": "Preguntas de Fondo",
+            "Question": "Pregunta"
+          },
+          "Connections": {
+            "Title": "Conexiones",
+            "Question": "Pregunta"
+          }
+        }
+      },
+      "Global": {
+        "Actions": "Acciones",
+        "Effects": "Efectos",
+        "activeEffects": "Efectos Activos",
+        "inativeEffects": "Efectos Inactivos"
+      },
+      "DomainCard": {
+        "Type": "Tipo",
+        "Category": "Categoría",
+        "Foundation": "Fundamento",
+        "Domain": "Dominio",
+        "Costs": "Costos",
+        "Level": "Nivel",
+        "RecallCost": "Costo de Recuperación",
+        "Description": "Descripción"
+      },
+      "Feature": {
+        "FeatureType": "Tipo",
+        "ActionType": "Tipo de Acción",
+        "RefreshType": "Tipo de Recarga",
+        "ValueType": {
+          "Title": "Tipo de Rasgo",
+          "Type": "Tipo",
+          "Property": "Propiedad",
+          "Dice": "Dado",
+          "Icon": "Ícono"
+        },
+        "Max": "Máximo",
+        "Tabs": {
+          "Features": "Rasgos",
+          "Effects": "Efectos",
+          "Settings": "Configuración",
+          "Actions": "Acciones",
+          "Description": "Descripción"
+        },
+        "Description": "Descripción",
+        "effects": {
+          "addEffect": "Agregar Efecto",
+          "applyLocation": "Aplicar Ubicación",
+          "value": "Valor",
+          "initiallySelected": "Seleccionado Inicialmente",
+          "hopeIncrease": "Aumento de Esperanza"
+        }
+      },
+      "Consumable": {
+        "Quantity": "Cantidad",
+        "ConsumeOnUse": "Consumir al Usar"
+      },
+      "Miscellaneous": {
+        "Quantity": "Cantidad"
+      },
+      "Subclass": {
+        "Tabs": {
+          "General": "General",
+          "Foundation": "Fundamento",
+          "Specialization": "Especialización",
+          "Mastery": "Maestría"
+        },
+        "SpellcastingTrait": "Rasgo de Lanzamiento de Hechizos",
+        "Description": "Descripción",
+        "SubclassFeature": {
+          "Description": "Descripción",
+          "Abilities": "Habilidades",
+          "Actions": "Acciones",
+          "Effects": "Efectos"
+        }
+      },
+      "Weapon": {
+        "PrimaryWeapon": "Arma Primaria",
+        "SecondaryWeapon": "Arma Secundaria",
+        "Trait": "Rasgo",
+        "Range": "Rango",
+        "Damage": {
+          "Title": "Daño",
+          "Value": "Valor",
+          "Type": "Tipo"
+        },
+        "Burden": "Carga",
+        "Feature": "Rasgo",
+        "Description": "Descripción"
+      }
+    },
+    "Item": {
+      "Errors": {
+        "MissingClass": "Al personaje le falta una clase.",
+        "SubclassNotInClass": "La subclase no pertenece a la clase del personaje.",
+        "ClassAlreadySelected": "El personaje ya tiene una clase.",
+        "SubclassAlreadySelected": "El personaje ya tiene una subclase para esa clase.",
+        "NoClassSelected": "¡Tu personaje no tiene una clase seleccionada!",
+        "LacksDomain": "¡Tu personaje no tiene el dominio de la carta!",
+        "MaxLoadoutReached": "¡No puedes tener más cartas de dominio a este nivel!",
+        "DuplicateDomainCard": "¡Ya tienes una carta de dominio con ese nombre!"
+      }
+    },
+    "Effects": {
+      "duration": {
+        "passive": "Pasivo",
+        "temporary": "Temporal"
+      },
+      "Types": {
+        "health": {
+          "Name": "Salud"
+        },
+        "stress": {
+          "Name": "Estrés"
+        },
+        "reach": {
+          "Name": "Alcance"
+        },
+        "damage": {
+          "Name": "Daño"
+        }
+      },
+      "ApplyLocations": {
+        "AttackRoll": {
+          "Name": "Tirada de Ataque"
+        },
+        "DamageRoll": {
+          "Name": "Tirada de Daño"
+        }
+      }
+    },
+    "Tooltip": {
+      "openItemWorld": "Abrir en Mundo de Objetos",
+      "sendToChat": "Enviar al Chat",
+      "moreOptions": "Más Opciones",
+      "equip": "Equipar",
+      "unequip": "Desequipar",
+      "delete": "Eliminar",
+      "sendToVault": "Enviar al Alijo",
+      "sendToLoadout": "Enviar al Equipamiento"
+    },
+    "Actions": {
+      "Types": {
+        "Attack": {
+          "Name": "Ataque"
+        },
+        "Spellcast": {
+          "Name": "Hechizo"
+        },
+        "Resource": {
+          "Name": "Recurso"
+        },
+        "Damage": {
+          "Name": "Daño"
+        },
+        "Healing": {
+          "Name": "Sanación"
+        },
+        "Summon": {
+          "Name": "Invocar"
+        },
+        "Effect": {
+          "Name": "Efecto"
+        },
+        "Macro": {
+          "Name": "Macro"
+        }
+      },
+      "Settings": {
+        "ResultBased": {
+          "label": "Fórmula basada en resultado de Esperanza/Miedo."
+        }
+      }
+    },
+    "RollTypes": {
+      "ability": {
+        "name": "Habilidad"
+      },
+      "weapon": {
+        "name": "Arma"
+      },
+      "spellcast": {
+        "name": "Hechizo"
+      },
+      "diceSet": {
+        "name": "Conjunto de Dados"
+      }
+    }
+  }
+}
