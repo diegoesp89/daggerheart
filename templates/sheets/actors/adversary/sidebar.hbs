@@ -81,7 +81,7 @@
             <side-line-div></side-line-div>
         </div>
         <ul class="items-sidebar-list">
-            {{> 'systems/daggerheart/templates/sheets/global/partials/inventory-item.hbs' item=source.system.attack type=source.system.attack.type isSidebar=true}}
+            {{> 'systems/daggerheart/templates/sheets/global/partials/inventory-item.hbs' item=source.system.attack type=source.system.attack.systemPath isSidebar=true}}
         </ul>
     </div>
     <div class="experience-section">
@@ -96,7 +96,7 @@
                     <div class="experience-value">
                         +{{experience.total}}
                     </div>
-                    <input name="{{concat "system.experiences." id ".description"}}" data-experience={{id}} value="{{experience.description}}" type="text" />
+                    <span>{{experience.description}}</span>
                     <div class="controls">
                         <a data-action="toChat" data-type="experience" data-uuid="{{id}}"><i class="fa-regular fa-message"></i></a>
                     </div>

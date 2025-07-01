@@ -29,12 +29,13 @@ export default class AdversarySheet extends DaggerheartSheet(ActorSheetV2) {
         sidebar: { template: 'systems/daggerheart/templates/sheets/actors/adversary/sidebar.hbs' },
         header: { template: 'systems/daggerheart/templates/sheets/actors/adversary/header.hbs' },
         features: { template: 'systems/daggerheart/templates/sheets/actors/adversary/features.hbs' },
+        notes: { template: 'systems/daggerheart/templates/sheets/actors/adversary/notes.hbs' },
         effects: { template: 'systems/daggerheart/templates/sheets/actors/adversary/effects.hbs' }
     };
 
     static TABS = {
         features: {
-            active: false,
+            active: true,
             cssClass: '',
             group: 'primary',
             id: 'features',

@@ -3,8 +3,8 @@
     data-tab='{{tabs.notes.id}}'
     data-group='{{tabs.notes.group}}'
 >
-    <fieldset>
-        <legend>{{tabs.notes.label}}</legend>
+    <fieldset class="fit-height">
+        <legend>{{localize tabs.notes.label}}</legend>
         {{formInput systemFields.notes value=document.system.notes enriched=source.document.notes localize=true toggled=true}}
     </fieldset>
 </section>

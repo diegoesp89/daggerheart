@@ -5074,6 +5074,9 @@ div.daggerheart.views.multiclass {
   background-color: light-dark(#18162e, #f3c267);
   color: light-dark(#efe6d8, #18162e);
 }
+.application.dh-style fieldset.fit-height {
+  height: 95%;
+}
 .application.dh-style fieldset.flex {
   display: flex;
   gap: 20px;

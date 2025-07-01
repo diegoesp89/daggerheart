@@ -23,7 +23,10 @@ export default class DHAdversarySettings extends HandlebarsApplicationMixin(Appl
             resizable: false
         },
         position: { width: 455, height: 'auto' },
-        actions: {},
+        actions: {
+            addExperience: this.addExperience,
+            removeExperience: this.removeExperience
+        },
         form: {
             handler: this.updateForm,
             submitOnChange: true,
@@ -109,6 +112,22 @@ export default class DHAdversarySettings extends HandlebarsApplicationMixin(Appl
         }
 
         return tabs;
+    }
+
+    static async addExperience() {
+        const newExperience = {
+            name: 'Experience',
+            modifier: 0
+        };
+        await this.actor.update({ [`system.experiences.${foundry.utils.randomID()}`]: newExperience });
+    }
+
+    static async removeExperience() {
+        const newExperience = {
+            name: 'Experience',
+            modifier: 0
+        };
+        await this.actor.update({ [`system.experiences.${foundry.utils.randomID()}`]: newExperience });
     }
 
     static async updateForm(event, _, formData) {
