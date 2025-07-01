@@ -94,9 +94,9 @@
             {{#each source.system.experiences as |experience id|}}
                 <div class="experience-row">
                     <div class="experience-value">
-                        +{{experience.total}}
+                        +{{experience.modifier}}
                     </div>
-                    <span>{{experience.description}}</span>
+                    <span>{{experience.name}}</span>
                     <div class="controls">
                         <a data-action="toChat" data-type="experience" data-uuid="{{id}}"><i class="fa-regular fa-message"></i></a>
                     </div>

@@ -120,14 +120,12 @@ export default class DHAdversarySettings extends HandlebarsApplicationMixin(Appl
             modifier: 0
         };
         await this.actor.update({ [`system.experiences.${foundry.utils.randomID()}`]: newExperience });
+        this.render();
     }
 
-    static async removeExperience() {
-        const newExperience = {
-            name: 'Experience',
-            modifier: 0
-        };
-        await this.actor.update({ [`system.experiences.${foundry.utils.randomID()}`]: newExperience });
+    static async removeExperience(_, target) {
+        await this.actor.update({ [`system.experiences.-=${target.dataset.experience}`]: null });
+        this.render();
     }
 
     static async updateForm(event, _, formData) {

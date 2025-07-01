@@ -3,15 +3,15 @@
     data-tab='{{tabs.experiences.id}}'
     data-group='{{tabs.experiences.group}}'
 >
-    <button data-action="addExperience">
+    <button type="button" data-action="addExperience">
         New Experience
     </button>
 
-    {{#each document.system.experiences as |experience index|}}
+    {{#each document.system.experiences as |experience key|}}
         <div class="experience-chip">
-            <input class="experience.value" type="text" name="system.experiences.{{index}}.name" value="{{experience.name}}" />
-            <input class="experience-value" type="text" name="system.experiences.{{index}}.value" value="{{experience.value}}" data-dtype="Number" />
-            <button class="experience-button" data-action="removeExperience" data-experience="{{experience.id}}"><i class="fa-solid fa-x"></i></button>
+            <input class="experience.value" type="text" name="system.experiences.{{key}}.name" value="{{experience.name}}" />
+            <input class="experience-value" type="text" name="system.experiences.{{key}}.modifier" value="{{experience.modifier}}" data-dtype="Number" />
+            <button type="button" class="experience-button" data-action="removeExperience" data-experience="{{key}}"><i class="fa-solid fa-x"></i></button>
         </div>
     {{/each}}
 </section>
